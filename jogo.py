@@ -47,7 +47,10 @@ def valkyrie():
 limparTELA()
 
 #variaveis pre definidas para usu global
+decisao_ini = ""
+decisao_city = ""
 esco_persona = ""
+start_point = ""
 life, atack, defense, start_Point, info_Stats = 0, 0, 0, "", ""
 
 print("bem vindo! escolha seu personagem: ")
