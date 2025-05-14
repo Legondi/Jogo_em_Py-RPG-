@@ -131,8 +131,43 @@ if start_Point == "V":
 else:
     print("Voce escolheu o Mago\n")
 
-print("o que voce vai fazer agora? ¯\_(ツ)_/¯")
-print()
 
-decisao_ini = input("1- Buscar \n2- Guerreira\n3- Informações de Personagens:")
+#impede o uso de digitar errado
+while decisao_ini != "1" and decisao_ini != "2" and decisao_ini != "3":
 
+  #mensagem de teste
+  print("o que voce vai fazer agora? ¯\_(ツ)_/¯\n")
+
+  #estrutura para decidir inicio da historia
+  decisao_ini = input("1- Investigar ponto de origem \n2- Viajar em busca de poder \n3- enfrentar Boss final\n:")
+
+
+  # separa os caminhos para acessar a funcao de cada mapa em especifico
+  if decisao_ini == "1":
+    limparTELA()
+    if start_Point == "V":
+        vulcao()
+    else:
+        floresta()
+  elif decisao_ini == "2":
+    limparTELA()
+    while decisao_city != "1" and decisao_city != "2":
+    
+      print("escolha seu destino:")
+      decisao_city = input("1- vilarejo\n2- precipicio\n:")
+      if decisao_city == "1":
+        limparTELA()
+        vilarejo()
+      elif decisao_city == "2":
+        limparTELA()
+        precipicio()
+      else:
+        limparTELA()
+        print("Deixa de ser teimoso e escolhe 1 ou 2!!!\n")
+
+  elif decisao_ini == "3":
+    limparTELA()
+    batalha_final()
+  else:
+    limparTELA()
+    print("vamos la eu sei que voce consegue, escolha 1, 2 ou 3 ;)")
