@@ -53,7 +53,18 @@ def vulcao():
     vida = life
     esco_lutar = ""
     dead = 0
-    print("inimigo 1\n")
+    
+    print("Você decidiu adentrar as Fendas de Fulgor, uma região oculta no interior do vulcão Legondira.")
+    print("O calor ali queima até o próprio fogo. Legondi sussurra dentro da espada: ")
+    print('“Quer o verdadeiro poder das Chamas? Vá até onde nem o inferno ousa queimar.”')
+    pause = input("Aperte qualquer tecla para continuar...\n")
+
+
+    print("Primeiro inimigo: Ashkar, o Guardião das Cinzas.")
+    print("Um antigo guerreiro fracassado que tentou dominar Abyssviolet.")
+    print("Lento, resistente, ataca com explosões de cinza quente.")
+    pause = input("Prepare-se para lutar. Aperte qualquer tecla...\n")
+
 
     while aliveG == True and LevelComplet == False:
         while esco_lutar != "1" and esco_lutar != "2":
@@ -121,9 +132,10 @@ def vulcao():
             pause = input("aperte qualquer tecla para continuar:\n")
             limparTELA()
 
-            print("teste\n")
-
-            print("inimigo 2\n")
+            print("Segundo inimigo: Igraya, a Salamandra da Ira.")
+            print("Um monstro ancestral de magma que persegue calor mágico.")
+            print("Rápida, imprevisível, absorve calor para tentar apagar sua armadura viva.")
+            pause = input("Aperte qualquer tecla para continuar...\n")
 
             esco_lutar = ""
 
@@ -197,7 +209,11 @@ def vulcao():
         if aliveG == True:
             pause = input("aperte qualquer tecla para continuar:\n")
             limparTELA()
-            print("inimigo3\n")
+            print("Terceiro inimigo: N’zurak, o Portador do Fragmento.")
+            print("Um reflexo distorcido de você mesma. Ele não luta por justiça. Luta por diversão.")
+            print("Seu estilo muda a cada rodada. Ele copia e distorce suas próprias técnicas.")
+            pause = input("Você está prestes a enfrentar o reflexo da sua alma. Aperte qualquer tecla...\n")
+
             lifeE, attackE, defenseE, aliveE = inimigo3()
 
             pause = input("voce esta indo para a batalha final obrigatoria da fenda do vulcao\nAperte qualquer tecla para continuar")
@@ -247,8 +263,11 @@ def vulcao():
             LevelComplet = True
             pause = input("aperte enter para continuar")
             limparTELA()
-            print("voce conseguiu poder o suficiente para enfrentar sefhirot hora de enfrenta-lo\n")
-            pause = input("aperte enter para continuar")
+            print("Com a vitória sobre N’zurak, você sente uma onda de poder invadir seu corpo.")
+            print("O fragmento escondido do verdadeiro poder de Legondi foi absorvido por Abyssviolet.")
+            print("Sua chama agora pulsa em azul profundo. A espada exige mais... mas está satisfeita, por ora.")
+            pause = input("Hora de enfrentar Sephiroth. Aperte qualquer tecla para continuar...\n")
+
             limparTELA()
             batalha_final()
         elif dead == 1:
@@ -367,18 +386,52 @@ while esco_persona != "1" and esco_persona != "2":
 
 #define a variavel para usar de parametro na hora de dar respawn do personagem
 if start_point == "V":
-    print("Voce escolheu a Guerreira\n")
+    
+    print("Quando Sephiroth, o ser sombrio de poder devastador, lançou à distância sua maldição sobre Legondira — um feitiço de aniquilação total — ninguém conseguiu reagir. Exceto ela.")
+    print("No momento em que tudo parecia perdido, Neriah se lançou entre a magia e os inocentes, e ergueu uma arma proibida: a espada lendária Abyssviolet.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+    print("A lenda dizia que qualquer um que empunhasse a espada seria destruído por ela, ou consumido pela alma do antigo guerreiro Legondi, selado em seu núcleo.")
+    print("Mas, ao vê-la, o espírito guerreiro ancestral não viu uma escolhida. Viu entretenimento.")
+    print('“Você vai me dar batalhas. Vitórias. Gritos e caos. Você vai me entreter.”')
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+
+    print("A energia das trevas lançada por Sephiroth foi absorvida pela lâmina.")
+    print("Ao invés de matá-la, fundiu-se ao seu corpo. As Chamas de Abyssviolet surgiram em um tom roxo profundo azulado, criando uma armadura viva ao redor de Neriah — feita de puro fogo, que nunca a queima.")
+    print("Ela resistiu não por pureza. Mas porque Legondi se divertiu.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+
+    print("Desde então, a fronteira entre bravura e soberba se desfaz em cada passo da guerreira.")
+    print("Ela é reverenciada como uma enviada do próprio fogo — temida, seguida, adorada.")
+    print("A cidade está de pé, mas ferida. Os sobreviventes a olham com temor e fé.")
+    print("Ela sabe que o inimigo não está longe, mas que não o enfrentará como está. A espada exige mais. Mais poder. Mais conflito.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+
+    limparTELA()
+
+    print("A voz de Legondi ecoa em sua mente, abafando até o som do mundo ao redor:")
+    print('“As Fendas de Fulgor te chamarão de volta... mas será que você é digna do fogo que arde lá dentro?”')
+    print("Você sente o poder queimando sob seus pés — mas sabe que há outros caminhos. Por enquanto.")
+    print("Talvez o vilarejo tenha algo a oferecer... ou quem sabe o precipício esconda uma verdade.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+    print("1- Investigar a Fenda do Vulcão?\n2- Viajar em busca de poder para o precipico ou para o vilarejo destruido?\n3- ignorar tudo e enfrentar Sephiroth com o Poder atual")
+
 else:
     print("Voce escolheu o Mago\n")
+    print("1- Investigar ponto de origem \n2- Viajar em busca de poder \n3- enfrentar Boss final")
 
 
 #impede o uso de digitar errado
 while decisao_ini != "1" and decisao_ini != "2" and decisao_ini != "3":
     #mensagem de teste
-    print("o que voce vai fazer agora? ¯\_(ツ)_/¯\n")
+    print("\no que voce vai fazer agora? ¯\_(ツ)_/¯\n")
 
     #estrutura para decidir inicio da historia
-    decisao_ini = input("1- Investigar ponto de origem \n2- Viajar em busca de poder \n3- enfrentar Boss final\n:")
+    
+    decisao_ini = input("\n:")
 
     # separa os caminhos para acessar a funcao de cada mapa em especifico
     if decisao_ini == "1":
