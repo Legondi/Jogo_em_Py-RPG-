@@ -313,7 +313,31 @@ esco_persona = ""
 start_point = ""
 life, atack, defense, start_point, info_Stats = 0, 0, 0, "", ""
 
-print("bem vindo! escolha seu personagem: ")
+print("O Reino de Libertália era um símbolo de equilíbrio e poder, onde magos e guerreiros viviam em paz,")
+print("protegendo suas terras sob a liderança justa do Império Libertália — uma cidade majestosa localizada no centro do reino.\n")
+
+print("Porém, essa paz foi quebrada quando Sephiroth, um ser sombrio de imenso poder, surgiu do desconhecido")
+print("e iniciou um ataque devastador. Ele destruiu o Vilarejo de Ludwig, corrompeu antigos protetores,")
+print("e tomou a cidade imperial, mergulhando-a em trevas.\n")
+
+print("Agora, os últimos heróis se erguem: magos da Floresta Encantada de Nack e guerreiros do Vulcão Legondi")
+print("embarcam em uma jornada para enfrentar os lacaios de Sephiroth e libertar o coração do reino.\n")
+
+print("O Vulcão Legondi é uma terra de provações. Forjado em calor e cinzas, ele molda os guerreiros mais resistentes —")
+print("forjados não apenas em batalha, mas na dor, no sacrifício e na honra ancestral.")
+print("Dizem que as Fendas de Fulgor, escondidas dentro de Legondi, sussurram o nome dos que têm destino grandioso.")
+print("Quem ousa encarar suas profundezas, raramente retorna o mesmo.\n")
+
+print("Enquanto isso, a Floresta de Nack pulsa com magia selvagem.")
+print("Suas árvores milenares guardam segredos e espíritos antigos que concedem poder aos magos dignos.\n")
+
+print("O Canyon Cozz, ao oeste, é um deserto de pedra e vento, onde um ninja sombrio guarda artefatos esquecidos.")
+print("E ao norte, os escombros do Vilarejo de Ludwig ecoam os gritos dos caídos, sob o domínio de um guardião corrompido.\n")
+
+print("Você é um dos últimos escolhidos. A jornada começa agora.\n")
+
+input("Pressione ENTER para escolher o seu personagem \n")
+
 
 #validação de escolha
 while esco_persona != "1" and esco_persona != "2":
@@ -414,10 +438,11 @@ if start_point == "V":
     print("A voz de Legondi ecoa em sua mente, abafando até o som do mundo ao redor:")
     print('“As Fendas de Fulgor te chamarão de volta... mas será que você é digna do fogo que arde lá dentro?”')
     print("Você sente o poder queimando sob seus pés — mas sabe que há outros caminhos. Por enquanto.")
-    print("Talvez o vilarejo tenha algo a oferecer... ou quem sabe o precipício esconda uma verdade.")
+    print("Talvez o Vilarejo de Ludwig ainda esconda vestígios do passado... ou ecos de algo que se recusa a morrer.")
+    print("Talvez o Canyon Cozz revele os segredos enterrados na areia... ou a sombra de quem ainda vigia das rochas.")   
     pause = input("Aperte qualquer tecla para continuar...\n")
     limparTELA()
-    print("1- Investigar a Fenda do Vulcão?\n2- Viajar em busca de poder para o precipico ou para o vilarejo destruido?\n3- ignorar tudo e enfrentar Sephiroth com o Poder atual")
+    print("1- Investigar a Fenda do Vulcão?\n2- Viajar em busca de poder para o Canyon Cozz ou para o Vilarejo de Ludwig?\n3- ignorar tudo e enfrentar Sephiroth com o Poder atual")
 
 else:
     print("Voce escolheu o Mago\n")
