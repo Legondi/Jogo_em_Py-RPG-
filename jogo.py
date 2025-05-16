@@ -17,7 +17,7 @@ def batalha_final():
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
-    # Variáveis de controle de combate
+    # Variáveis de controle
     cont = 0
     alive = True
     aliveG = True
