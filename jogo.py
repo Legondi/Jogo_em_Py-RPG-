@@ -13,57 +13,62 @@ def vilarejo():
     #leva para o vilarejo
     print("Vilarejo\n")
 
-    print ()
 
-def vulcao():
+def combate(a, lifeC, attackC, defenseC, lifeEC, attackEC, defenseEC):
+
+    if a == 1:
+
+        Attack = max(random.randint(1, attackC) - random.randint(1, defenseEC), 0)
+        lifeEC = max(lifeEC - Attack, 0)
+
+    return lifeEC
+
+def vulcao(lifeFun, attackFun, defenseFun):
     #leva para o vulcao
     print("vulcao\n")
 
-    def inimigo1():
+    def inimigos(a):
 
-        lifeE = 1
-        attackE= 1
-        defenseE = 3
+        if a == 1:
+
+            lifeE = 1
+            attackE= 1
+            defenseE = 3
+            
+        elif a == 2: 
+
+            lifeE = 1
+            attackE= 1
+            defenseE = 3
+            
+        else:
+                
+            lifeE = 30
+            attackE= 40
+            defenseE = 3
+            
         aliveE = True
-
-        return lifeE, attackE, defenseE, aliveE
-    
-    def inimigo2():
-        
-        lifeE = 1
-        attackE= 1
-        defenseE = 3
-        aliveE = True
-
-        return lifeE, attackE, defenseE, aliveE
-    
-    def inimigo3():
-        
-        lifeE = 30
-        attackE= 40
-        defenseE = 3
-        aliveE = True
-
         return lifeE, attackE, defenseE, aliveE
 
     cont = 0
     alive = True
     aliveG = True
     LevelComplet = False
-    vida = life
+    vida = lifeFun
     esco_lutar = ""
     dead = 0
+    result = 0
     
     print("Você decidiu adentrar as Fendas de Fulgor, uma região oculta no interior do vulcão Legondira.")
     print("O calor ali queima até o próprio fogo. Legondi sussurra dentro da espada: ")
     print('“Quer o verdadeiro poder das Chamas? Vá até onde nem o inferno ousa queimar.”')
-    pause = input("Aperte qualquer tecla para continuar...\n")
+    input("Aperte qualquer tecla para continuar...\n")
 
 
     print("Primeiro inimigo: Ashkar, o Guardião das Cinzas.")
     print("Um antigo guerreiro fracassado que tentou dominar Abyssviolet.")
     print("Lento, resistente, ataca com explosões de cinza quente.")
-    pause = input("Prepare-se para lutar. Aperte qualquer tecla...\n")
+    input("Prepare-se para lutar. Aperte qualquer tecla...\n")
 
 
     while aliveG == True and LevelComplet == False:
@@ -73,14 +78,16 @@ def vulcao():
             if esco_lutar == "1":
                 limparTELA()
                 print("voce escolheu lutar\n")
-                lifeE, attackE, defenseE, aliveE = inimigo1()
+                lifeE, attackE, defenseE, aliveE = inimigos(1)
                 
                 while alive == True and aliveE == True:
                     cont = cont + 1
-                    print (life)
-                    print (vida)
-                    resultAttack = max(random.randint(1, atack) - random.randint(1, defenseE), 0)
 
+                    combate(1, lifeFun, attackFun, defenseFun, lifeE, attackE, defenseE)
+
+                    result = combate(1, lifeFun, attackFun, defenseFun, lifeE, attackE, defenseE)
+
+                    resultAttack = max(random.randint(1, attackFun) - random.randint(1, defenseE), 0)
                     lifeE = max(lifeE - resultAttack, 0)
 
                     print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
@@ -90,21 +97,21 @@ def vulcao():
                         aliveE = False 
                         print ("Fim do combate\n")
                         cont = 0
-                        vida = life
+                        lifeFun = max(lifeFun, vida)
                         break
 
                     else:
 
-                        pause = input("rodada do adversario aperte qualquer tecla para continuar:\n")
+                        input("rodada do adversario aperte qualquer tecla para continuar:\n")
                         limparTELA()
 
-                    resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                    resultAttackE = max(random.randint(1, attackE) - random.randint(1, defenseFun), 0)
 
                     vida = max(vida - resultAttackE, 0)
 
                     print("voce foi atacado e recebeu", resultAttackE, "de dano\nResta", vida, "da sua vida\n")
 
-                    if vida <= 0:
+                    if lifeFun <= 0:
 
                         alive = False 
                         print ("Fim do combate\n")
@@ -116,7 +123,7 @@ def vulcao():
                     else:
 
                         print ("Fim da rodada", cont,"\n")
-                        pause = input("aperte qualquer tecla para continuar:\n")
+                        input("aperte qualquer tecla para continuar:\n")
                         limparTELA()
             elif esco_lutar == "2":
                 limparTELA()
@@ -129,13 +136,13 @@ def vulcao():
 
 
         if aliveG == True:
-            pause = input("aperte qualquer tecla para continuar:\n")
+            input("aperte qualquer tecla para continuar:\n")
             limparTELA()
 
             print("Segundo inimigo: Igraya, a Salamandra da Ira.")
             print("Um monstro ancestral de magma que persegue calor mágico.")
             print("Rápida, imprevisível, absorve calor para tentar apagar sua armadura viva.")
-            pause = input("Aperte qualquer tecla para continuar...\n")
+            input("Aperte qualquer tecla para continuar...\n")
 
             esco_lutar = ""
 
@@ -146,14 +153,12 @@ def vulcao():
                 if esco_lutar == "1":
                     limparTELA()
                     print("voce escolheu lutar\n")
-                    lifeE, attackE, defenseE, aliveE = inimigo2()
+                    lifeE, attackE, defenseE, aliveE = inimigos(2)
                     
                     while alive == True and aliveE == True:
                         cont = cont + 1
-                        print (life)
-                        print (vida)
-                        resultAttack = max(random.randint(1, atack) - random.randint(1, defenseE), 0)
-
+                
+                        resultAttack = max(random.randint(1, attackFun) - random.randint(1, defenseE), 0)
                         lifeE = max(lifeE - resultAttack, 0)
 
                         print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
@@ -169,16 +174,16 @@ def vulcao():
 
                         else:
 
-                            pause = input("rodada do adversario aperte qualquer tecla para continuar:\n")
+                            input("rodada do adversario aperte qualquer tecla para continuar:\n")
                             limparTELA()
 
-                        resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                        resultAttackE = max(random.randint(1, attackE) - random.randint(1, defenseFun), 0)
 
                         vida = max(vida - resultAttackE, 0)
 
                         print("voce foi atacado e recebeu", resultAttackE, "de dano\nResta", vida, "da sua vida\n")
 
-                        if vida <= 0:
+                        if lifeFun <= 0:
 
                             alive = False 
                             print ("Fim do combate\n")
@@ -190,7 +195,7 @@ def vulcao():
                         else:
 
                             print ("Fim da rodada", cont,"\n")
-                            pause = input("aperte qualquer tecla para continuar:\n")
+                            input("aperte qualquer tecla para continuar:\n")
                             limparTELA()
                 elif esco_lutar == "2":
                     limparTELA()
@@ -201,29 +206,27 @@ def vulcao():
                     print("...\n")
                 
         elif dead == 1:
-            pause = input("aperte qualquer tecla para continuar:\n")
+            input("aperte qualquer tecla para continuar:\n")
             limparTELA()
             print("game over")
             dead = 0
 
         if aliveG == True:
-            pause = input("aperte qualquer tecla para continuar:\n")
+            input("aperte qualquer tecla para continuar:\n")
             limparTELA()
             print("Terceiro inimigo: N’zurak, o Portador do Fragmento.")
             print("Um reflexo distorcido de você mesma. Ele não luta por justiça. Luta por diversão.")
             print("Seu estilo muda a cada rodada. Ele copia e distorce suas próprias técnicas.")
-            pause = input("Você está prestes a enfrentar o reflexo da sua alma. Aperte qualquer tecla...\n")
+            input("Você está prestes a enfrentar o reflexo da sua alma. Aperte qualquer tecla...\n")
 
-            lifeE, attackE, defenseE, aliveE = inimigo3()
+            lifeE, attackE, defenseE, aliveE = inimigos(3)
 
-            pause = input("voce esta indo para a batalha final obrigatoria da fenda do vulcao\nAperte qualquer tecla para continuar")
+            input("voce esta indo para a batalha final obrigatoria da fenda do vulcao\nAperte qualquer tecla para continuar")
             limparTELA()
                     
             while alive == True and aliveE == True:
                 cont = cont + 1
-                print (life)
-                print (vida)
-                resultAttack = max(random.randint(1, atack) - random.randint(1, defenseE), 0)
+                resultAttack = max(random.randint(1, attackFun) - random.randint(1, defenseE), 0)
                 lifeE = max(lifeE - resultAttack, 0)
                 print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
                 
@@ -234,14 +237,14 @@ def vulcao():
                     vida = life
                     break
                 else:
-                    pause = input("rodada do adversario aperte qualquer tecla para continuar:\n")
+                    input("rodada do adversario aperte qualquer tecla para continuar:\n")
                     limparTELA()
                 
-                resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                resultAttackE = max(random.randint(1, attackE) - random.randint(1, defenseFun), 0)
                 vida = max(vida - resultAttackE, 0)
                 print("voce foi atacado e recebeu", resultAttackE, "de dano\nResta", vida, "da sua vida\n")
                 
-                if vida <= 0:
+                if lifeFun <= 0:
                     alive = False 
                     print ("Fim do combate\n")
                     cont = 0
@@ -250,28 +253,28 @@ def vulcao():
                     break
                 else:
                     print ("Fim da rodada", cont,"\n")
-                    pause = input("aperte qualquer tecla para continuar:\n")
+                    input("aperte qualquer tecla para continuar:\n")
                     limparTELA()
         
         elif dead == 1:
-            pause = input("aperte qualquer tecla para continuar:\n")
+            input("aperte qualquer tecla para continuar:\n")
             limparTELA()
             print("game over")
             dead = 0 
 
         if aliveG == True:
             LevelComplet = True
-            pause = input("aperte enter para continuar")
+            input("aperte enter para continuar")
             limparTELA()
             print("Com a vitória sobre N’zurak, você sente uma onda de poder invadir seu corpo.")
             print("O fragmento escondido do verdadeiro poder de Legondi foi absorvido por Abyssviolet.")
             print("Sua chama agora pulsa em azul profundo. A espada exige mais... mas está satisfeita, por ora.")
-            pause = input("Hora de enfrentar Sephiroth. Aperte qualquer tecla para continuar...\n")
+            input("Hora de enfrentar Sephiroth. Aperte qualquer tecla para continuar...\n")
 
             limparTELA()
             batalha_final()
         elif dead == 1:
-            pause = input("aperte qualquer tecla para continuar:\n")
+            input("aperte qualquer tecla para continuar:\n")
             limparTELA()
             print("game over") 
             dead = 0
@@ -288,20 +291,20 @@ def floresta():
 def mage():
     #status do mago
     life = 10
-    atack = 5
+    attack = 5
     defense = 6
     start_point = "F"
-    info_stats = f"Vida: {life}\nAtaque: {atack}\nDefesa: {defense}"
-    return life, atack, defense, start_point, info_stats
+    info_stats = f"Vida: {life}\nAtaque: {attack}\nDefesa: {defense}"
+    return life, attack, defense, start_point, info_stats
 
 def valkyrie():
     #status da guerreira
     life = 10
-    atack = 10
+    attack = 10
     defense = 1
     start_point = "V"
-    info_stats = f"Vida: {life}\nAtaque: {atack}\nDefesa: {defense}"
-    return life, atack, defense, start_point, info_stats
+    info_stats = f"Vida: {life}\nAtaque: {attack}\nDefesa: {defense}"
+    return life, attack, defense, start_point, info_stats
 
 #apaga restos de info do console antes de iniciar 
 limparTELA()
@@ -311,7 +314,7 @@ decisao_ini = ""
 decisao_city = ""
 esco_persona = ""
 start_point = ""
-life, atack, defense, start_point, info_Stats = 0, 0, 0, "", ""
+life, attack, defense, start_point, info_Stats = 0, 0, 0, "", ""
 
 print("O Reino de Libertália era um símbolo de equilíbrio e poder, onde magos e guerreiros viviam em paz,")
 print("protegendo suas terras sob a liderança justa do Império Libertália — uma cidade majestosa localizada no centro do reino.\n")
@@ -347,11 +350,11 @@ while esco_persona != "1" and esco_persona != "2":
     if esco_persona == "1":
         limparTELA()
         #carrega status do mago
-        life, atack, defense, start_point, info_Stats = mage()
+        life, attack, defense, start_point, info_Stats = mage()
     elif esco_persona == "2":
         limparTELA()
         #carrega status da guerreira
-        life, atack, defense, start_point, info_Stats = valkyrie()
+        life, attack, defense, start_point, info_Stats = valkyrie()
     elif esco_persona == "3":
         limparTELA()
 
@@ -365,7 +368,7 @@ while esco_persona != "1" and esco_persona != "2":
             limparTELA()
 
             if esco_info == "1":
-                life, atack, defense, start_point, info_Stats = mage() 
+                life, attack, defense, start_point, info_Stats = mage() 
 
                 #printa as infos com base na escolha
                 print(info_Stats)
@@ -373,7 +376,7 @@ while esco_persona != "1" and esco_persona != "2":
                 Exit = input("\naperte qualquer tecla para sair:")
 
             elif esco_info == "2":
-                life, atack, defense, start_point, info_Stats = valkyrie() 
+                life, attack, defense, start_point, info_Stats = valkyrie() 
 
                 #printa as infos com base na escolha
                 print(info_Stats)
@@ -413,25 +416,25 @@ if start_point == "V":
     
     print("Quando Sephiroth, o ser sombrio de poder devastador, lançou à distância sua maldição sobre Legondira — um feitiço de aniquilação total — ninguém conseguiu reagir. Exceto ela.")
     print("No momento em que tudo parecia perdido, Neriah se lançou entre a magia e os inocentes, e ergueu uma arma proibida: a espada lendária Abyssviolet.")
-    pause = input("Aperte qualquer tecla para continuar...\n")
+    input("Aperte qualquer tecla para continuar...\n")
     limparTELA()
     print("A lenda dizia que qualquer um que empunhasse a espada seria destruído por ela, ou consumido pela alma do antigo guerreiro Legondi, selado em seu núcleo.")
     print("Mas, ao vê-la, o espírito guerreiro ancestral não viu uma escolhida. Viu entretenimento.")
     print('“Você vai me dar batalhas. Vitórias. Gritos e caos. Você vai me entreter.”')
-    pause = input("Aperte qualquer tecla para continuar...\n")
+    input("Aperte qualquer tecla para continuar...\n")
     limparTELA()
 
     print("A energia das trevas lançada por Sephiroth foi absorvida pela lâmina.")
     print("Ao invés de matá-la, fundiu-se ao seu corpo. As Chamas de Abyssviolet surgiram em um tom roxo profundo azulado, criando uma armadura viva ao redor de Neriah — feita de puro fogo, que nunca a queima.")
     print("Ela resistiu não por pureza. Mas porque Legondi se divertiu.")
-    pause = input("Aperte qualquer tecla para continuar...\n")
+    input("Aperte qualquer tecla para continuar...\n")
     limparTELA()
 
     print("Desde então, a fronteira entre bravura e soberba se desfaz em cada passo da guerreira.")
     print("Ela é reverenciada como uma enviada do próprio fogo — temida, seguida, adorada.")
     print("A cidade está de pé, mas ferida. Os sobreviventes a olham com temor e fé.")
     print("Ela sabe que o inimigo não está longe, mas que não o enfrentará como está. A espada exige mais. Mais poder. Mais conflito.")
-    pause = input("Aperte qualquer tecla para continuar...\n")
+    input("Aperte qualquer tecla para continuar...\n")
 
     limparTELA()
 
@@ -440,7 +443,7 @@ if start_point == "V":
     print("Você sente o poder queimando sob seus pés — mas sabe que há outros caminhos. Por enquanto.")
     print("Talvez o Vilarejo de Ludwig ainda esconda vestígios do passado... ou ecos de algo que se recusa a morrer.")
     print("Talvez o Canyon Cozz revele os segredos enterrados na areia... ou a sombra de quem ainda vigia das rochas.")   
-    pause = input("Aperte qualquer tecla para continuar...\n")
+    input("Aperte qualquer tecla para continuar...\n")
     limparTELA()
     print("1- Investigar a Fenda do Vulcão?\n2- Viajar em busca de poder para o Canyon Cozz ou para o Vilarejo de Ludwig?\n3- ignorar tudo e enfrentar Sephiroth com o Poder atual")
 
@@ -462,7 +465,7 @@ while decisao_ini != "1" and decisao_ini != "2" and decisao_ini != "3":
     if decisao_ini == "1":
         limparTELA()
         if start_point == "V":
-            vulcao()
+            vulcao(life, attack, defense)
         else:
             floresta()
     elif decisao_ini == "2":
