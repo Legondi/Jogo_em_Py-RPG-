@@ -8,6 +8,101 @@ def limparTELA():
 def batalha_final():
     #leva para a batalha final do jogo
     print("batalha final")
+    
+    #Define os status do chefe final
+    def sephiroth():
+        lifeE = 25
+        attackE= 10
+        defenseE = 10
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    # Variáveis de controle de combate
+    cont = 0
+    alive = True
+    aliveG = True
+    LevelComplet = False
+    vida = life
+    esco_lutar = ""
+    dead = 0
+    
+    
+    while aliveG == True and LevelComplet == False:
+        while esco_lutar != "1" and esco_lutar != "2":
+            print("Parabéns! Você chegou ao final da jornada.")
+            print("Foi uma batalha longa e desafiadora...")
+            print("Mas agora, finalmente, está diante do lendário SEPHIROTH.")
+            print("Prepare-se para o confronto final!")
+            esco_lutar = input("1- lutar\n2- fugir\n:")
+
+            if esco_lutar == "1":
+                limparTELA()
+                print("voce escolheu lutar\n")
+                lifeE, attackE, defenseE, aliveE = sephiroth()
+
+                while alive == True and aliveE == True:
+                    cont = cont + 1
+                    resultAttack = max(random.randint(1, atack) - random.randint(1, defenseE), 0)
+
+                    lifeE = max(lifeE - resultAttack, 0)
+
+                    print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do sephiroth\n")
+
+                    if lifeE <= 0:
+
+                        aliveE = False 
+                        print("╔════════════════════════════════════════════╗")
+                        print("║         O FIM DO COMBATE CHEGOU!           ║")
+                        print("║       Você superou todos os desafios!      ║")
+                        print("║       A vitória é sua, grande herói!       ║")
+                        print("╚════════════════════════════════════════════╝\n")
+                        cont = 0
+                        vida = life
+                        break
+
+                    else:
+
+                        pause = input("rodada do adversario aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+
+                    resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+
+                    vida = max(vida - resultAttackE, 0)
+
+                    print("voce foi atacado e recebeu", resultAttackE, "de dano\nResta", vida, "da sua vida\n")
+                    
+                    if vida <= 0:
+
+                        alive = False 
+                        print("╔════════════════════════════════════════════╗")
+                        print("║           O FIM DO COMBATE CHEGOU!         ║")
+                        print("║      Você enfrentou tudo... e caiu!        ║")
+                        print("║           Seu destino foi selado.          ║")
+                        print("╚════════════════════════════════════════════╝\n")
+                        cont = 0
+                        aliveG = False
+                        dead = dead + 1
+                        break
+
+                    else:
+
+                        print ("Fim da rodada", cont,"\n")
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+            elif esco_lutar == "2":
+                limparTELA()
+                aliveG = False
+                print("╔════════════════════════════════════════════╗")
+                print("║           VOCÊ DEU MEIA-VOLTA...           ║")
+                print("║   Fugiu como um covarde diante do perigo.  ║")
+                print("║     O mundo esperava um herói... mas       ║")
+                print("║         recebeu um fujão patético.         ║")
+                print("╚════════════════════════════════════════════╝\n")
+
+
+            else:
+                limparTELA()
+                print("NAO EXISTE ESSA OPCAO!!!!!\n")
 
 def vilarejo():
     #leva para o vilarejo
