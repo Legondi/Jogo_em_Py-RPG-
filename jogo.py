@@ -508,7 +508,7 @@ while esco_persona != "1" and esco_persona != "2":
 #                                  V
 
 
-#define a variavel para usar de parametro na hora de dar respawn do personagem
+#define a variavel para usar de parametro na hora de dar respawn
 if start_point == "V":
 
     print("Quando Sephiroth, o ser sombrio de poder devastador, lançou à distância sua maldição sobre Legondira — um feitiço de aniquilação total — ninguém conseguiu reagir. Exceto ela.")
