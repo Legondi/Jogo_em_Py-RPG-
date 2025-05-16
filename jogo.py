@@ -1,9 +1,6 @@
 import random
 import os
 
-def jeanlindo ():
-    
-    jean = 1
 
 
 def limparTELA():
