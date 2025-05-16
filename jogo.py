@@ -39,7 +39,7 @@ def vulcao():
 
     def inimigo3():
 
-        lifeE = 30
+        lifeE = 1
         attackE= 40
         defenseE = 3
         aliveE = True
