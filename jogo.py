@@ -1,6 +1,11 @@
 import random
 import os
 
+def jeanlindo ():
+    
+    jean = 1
+
+
 def limparTELA():
     #limpa o console quando requisitado para deixar o ambiente mais limpo
     os.system('cls' if os.name == 'nt' else 'clear')
