@@ -1,8 +1,6 @@
 import random
 import os
 
-
-
 def limparTELA():
     #limpa o console quando requisitado para deixar o ambiente mais limpo
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -19,7 +17,7 @@ def batalha_final():
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
-    # Variáveis de controle
+    # Variáveis de controle de combate
     cont = 0
     alive = True
     aliveG = True
