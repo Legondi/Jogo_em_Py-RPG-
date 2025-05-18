@@ -13,9 +13,9 @@ def batalha_final():
     
     #Define os status do chefe final
     def sephiroth():
-        lifeE = 25
-        attackE= 10
-        defenseE = 10
+        lifeE = 25000000
+        attackE= 100000000
+        defenseE = 100000000
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
@@ -60,6 +60,8 @@ def batalha_final():
                         print("╚════════════════════════════════════════════╝\n")
                         cont = 0
                         vida = life
+                        #add levelComplet True para encerrar o while e finalizar o game (Leonardo)
+                        LevelComplet = True
                         break
 
                     else:
