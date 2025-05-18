@@ -10,6 +10,8 @@ def limparTELA():
 def batalha_final():
     #leva para a batalha final do jogo
     print("batalha final")
+
+
     
     #Define os status do chefe final
     def sephiroth():
@@ -381,6 +383,7 @@ def precipicio():
 
 def floresta():
     # leva para as Ruínas Arcanas
+    global Qtdlutas, life, atack, defense, level, xpAtual   
     print("As Ruínas Arcanas\n")
 
     def inimigo1_mago():
@@ -431,6 +434,7 @@ def floresta():
 
                 while alive and aliveE:
                     cont += 1
+                    Qtdlutas += 1
                     resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
                     lifeE = max(lifeE - resultAttack, 0)
 
@@ -465,9 +469,30 @@ def floresta():
             elif esco_lutar == "2":
                 limparTELA()
                 print("Você fugiu da luta.\n")
+                mostrar_status()
             else:
                 limparTELA()
                 print("Opção inválida!\n")
+
+
+        if esco_lutar == "1":
+            if aliveG == True and lifeE <= 0:
+                pause = input("aperte qualquer tecla para continuar:\n")
+                limparTELA()
+                print("Você derrotou Ashkar, o Guardião das Cinzas.")
+                print("Ele se desfaz em cinzas, revelando um fragmento de poder escondido.")
+                pause = input("Aperte qualquer tecla para continuar...\n")
+                
+                limparTELA()
+                if cont <= 1:
+                    print("Você derrotou Ashkar com facilidade. Ele não era digno de ser seu oponente.")
+                    sistema_de_xp()
+                elif cont <= 3:
+                    print("Você derrotou Ashkar com dificuldade. Ele era um adversário formidável.")
+                    sistema_de_xp()
+
+
+
 
         if aliveG:
             pause = input("Aperte qualquer tecla para continuar...\n")
@@ -487,6 +512,7 @@ def floresta():
 
                     while alive and aliveE:
                         cont += 1
+                        Qtdlutas += 1
                         resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
                         lifeE = max(lifeE - resultAttack, 0)
 
@@ -521,9 +547,26 @@ def floresta():
                 elif esco_lutar == "2":
                     limparTELA()
                     print("Você fugiu da luta.\n")
+                    mostrar_status()
                 else:
                     limparTELA()
                     print("Opção inválida!\n")
+
+                if esco_lutar == "1":
+                    if aliveG == True and lifeE <= 0:
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+                        print("Você derrotou Akyra, a Tecelã do Caos.")
+                        print("Ela desaparece em um redemoinho de ilusões, deixando para trás um fragmento de magia pura.")
+                        pause = input("Aperte qualquer tecla para continuar...\n")
+                    
+                    limparTELA()
+                    if cont <= 1:
+                        print("Você derrotou Akyra com facilidade. Suas ilusões não foram páreo para sua determinação.")
+                        sistema_de_xp()
+                    elif cont <= 3:
+                        print("Você derrotou Akyra com dificuldade. Suas ilusões quase o levaram à derrota.")
+                        sistema_de_xp()
 
         if aliveG:
             pause = input("Aperte qualquer tecla para continuar...\n")
@@ -544,6 +587,7 @@ def floresta():
 
                     while alive and aliveE:
                         cont += 1
+                        Qtdlutas += 1
                         resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
                         lifeE = max(lifeE - resultAttack, 0)
 
@@ -578,17 +622,68 @@ def floresta():
                 elif esco_lutar == "2":
                     limparTELA()
                     print("Você fugiu da luta.\n")
+                    mostrar_status()
                 else:
                     limparTELA()
                     print("Opção inválida!\n")
-
-        if aliveG:
+                
+                if esco_lutar == "1":
+                    if aliveG == True and lifeE <= 0:
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+                        print("Você derrotou Vyserion, o Arcanista Sombrio.")
+                        print("Ele cai de joelhos, sua magia se dissipando no ar, deixando para trás um núcleo de energia arcana.")
+                        pause = input("Aperte qualquer tecla para continuar...\n")
+                    
+                    limparTELA()
+                    if cont <= 1:
+                        print("Você derrotou Vyserion com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
+                        sistema_de_xp()
+                    elif cont <= 3:
+                        print("Você derrotou Vyserion com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
+                        sistema_de_xp()
+        if Qtdlutas >= 2:
             LevelComplet = True
             pause = input("Aperte qualquer tecla para continuar...\n")
             limparTELA()
             print("Com a vitória sobre Vyserion, sua mente se abre para segredos antigos.")
-            print("Você domina um novo feitiço: 'Éter Primordial'.")
+            print("Você domina um novo feitiço ✨🌀🔮: 'Éter Primordial'.")
             pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+            print("Você se torna o novo guardião das Ruínas Arcanas.")
+            print("A magia ancestral agora flui através de você, e o legado dos antigos magos vive em seu coração.")
+            print("Agora por sua coragem e determinação, você é digno de ser chamado de 'Guardião das Ruínas Arcanas'.")
+            pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+            print("E ganha poder dos antigos magos elfos que habitavam as ruínas e seu corpo recebe tamanho poder.")
+            print("Agora está pronto para enfrentar o verdadeiro desafio.")
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            limparTELA()
+            
+            atack =+ 3000
+            life =+ 15000
+            defense =+ 5000
+            mostrar_status()
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo .")
+            batalha_final()
+            exit()  
+
+        elif Qtdlutas < 2: 
+            print("Você está pronto o suficiente para enfrentar o verdadeiro desafio.")
+            pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+            limparTELA()
+            print("E não ganha poder dos antigos magos elfos que habitavam as ruínas pois seu corpo não esta fortalecido o suficiente.")
+            print("Agora terá que ir enfrentar o verdadeiro desafio sem esse poder.")
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            limparTELA()
+            
+            mostrar_status()
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            
+            print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo mesmo sem receber o grande poder .")
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            limparTELA()
+            batalha_final()
+            exit()
 
         elif dead == 1:
             pause = input("aperte qualquer tecla para continuar:\n")
@@ -615,6 +710,82 @@ def valkyrie():
     info_stats = f"Vida: {life}\nAtaque: {atack}\nDefesa: {defense}"
     return life, atack, defense, start_point, info_stats
 
+
+def upar_personagem():
+ 
+ global life, atack, defense
+ escolha = 0
+ while escolha != "1" and escolha != "2" and escolha != "3": 
+    print("\nVocê subiu de nível! Escolha um atributo para aumentar:")
+    print("1 - Aumentar Vida")
+    print("2 - Aumentar Ataque")
+    print("3 - Aumentar Defesa")
+    escolha = input("Digite o número da opção: ")
+
+    if  escolha != "1" and escolha != "2" and escolha != "3":
+        print("Opção inválida. Tente novamente.")
+        continue
+
+    if escolha == "1":
+        life += 5
+        print("✨ Vida aumentada!")
+    elif escolha == "2":
+        atack += 5
+        print("⚔️ Ataque aumentado!")
+    elif escolha == "3":
+        defense += 5
+        print("🛡️ Defesa aumentada!")
+    else:
+        print("Escolha inválida. Nenhum atributo foi aumentado.")
+
+    if  escolha != "1" and escolha != "2" and escolha != "3":
+        print("Opção inválida. Tente novamente.")
+        pause = input("Aperte qualquer tecla para continuar...\n")
+        limparTELA()
+
+def xpProximoNivel():
+    #calcula o xp para o proximo nivel
+    return 100 + (level - 1) * 50
+
+def calcular_xp_ganho(cont):
+    xpbase = 100
+    penalidade = (cont - 1) * 10
+    return max(20, xpbase - penalidade)
+
+def mostrar_status():
+    print(f"\n📊 Status Atual:")
+    print(f"Nível: {level}")
+    print(f"XP: {xpAtual}/{xpProximoNivel()}")
+    print(f"Vida: {life}, Ataque: {atack}, Defesa: {defense}")
+
+def xp_ganho():
+    #calcula o xp ganho
+    xpAtual += calcular_xp_ganho()
+    print(f"Você ganhou {xpAtual} de XP!")
+    if xpAtual >= xpProximoNivel():
+        level += 1
+        upar_personagem()
+        xpAtual = 0
+        print(f"Parabéns! Você subiu para o nível {level}!")
+
+def ganhar_xp(xp_ganho):
+    global xpAtual, level
+    # ganha xp e verifica se o level up
+    xpAtual += xp_ganho
+    while xpAtual >= xpProximoNivel():
+        xpAtual -= xpProximoNivel()
+        level += 1
+        print(f"\n🔼 Subiu para o Nível {level}!")
+        upar_personagem()
+
+def sistema_de_xp():
+    #Função que executa o sistema de XP baseado nas rodadas da batalha.
+    global cont
+    xp_ganho = calcular_xp_ganho(cont)
+    print(f"\n✨ XP ganho: {xp_ganho}")
+    ganhar_xp(xp_ganho)
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    mostrar_status()
 #apaga restos de info do console antes de iniciar 
 limparTELA()
 
@@ -624,7 +795,10 @@ decisao_city = ""
 esco_persona = ""
 start_point = ""
 life, atack, defense, start_point, info_Stats = 0, 0, 0, "", ""
-xpbase = 0
+xpbase , xpAtual  = 0, 1
+level = 1
+cont = 0
+Qtdlutas = 0   
 
 print("O Reino de Libertália era um símbolo de equilíbrio e poder, onde magos e guerreiros viviam em paz,")
 print("protegendo suas terras sob a liderança justa do Império Libertália — uma cidade majestosa localizada no centro do reino.\n")
@@ -654,7 +828,7 @@ input("Pressione ENTER para escolher o seu personagem \n")
 
 #validação de escolha
 while esco_persona != "1" and esco_persona != "2":
-    esco_persona = input("1- Mago\n2- Guerreira\n3- Informações de Personagens:")
+    esco_persona = input("1- Mago🧙‍♂️\n2- Guerreira\n3- Informações de Personagens:")
 
     #estrutura para decidir o personagem (previne erros)
     if esco_persona == "1":
@@ -674,7 +848,7 @@ while esco_persona != "1" and esco_persona != "2":
         #estrutura para decidir qual o status do personagem quer ver (previne erros)
         while esco_info != "1" and esco_info != "2" and esco_info != "3":
             print("qual dos persongens voce quer ver historia e status:?")
-            esco_info = input("1- Mago\n2- Guerreira\n3- voltar\n:")
+            esco_info = input("1- Mago🧙‍♂️\n2- Guerreira\n3- voltar\n:")
             limparTELA()
 
             if esco_info == "1":
@@ -759,24 +933,24 @@ if start_point == "V":
 
 else:
     print("Quando Sephiroth, o ser sombrio de poder devastador, lançou sua maldição sobre Legondira — uma onda de morte e esquecimento — ninguém conseguiu reagir. Exceto ele.")
-    print("Nas profundezas da Floresta Encantada de Nack, onde os sussurros das árvores guardam a memória do mundo, Elandor despertou de um transe antigo.")
+    print("Nas profundezas da Floresta Encantada de Nack, onde os sussurros das árvores guardam a memória do mundo, Arthur Leywin despertou de um transe antigo.")
     pause = input("Aperte qualquer tecla para continuar...\n")
     limparTELA()
 
     print("As copas estremeciam sem vento. O canto dos pássaros cessou. Os rios que serpenteavam os carvalhos ancestrais pareciam hesitar.")
     print("Os elfos anciões, guardiões do Equilíbrio Mágico, sabiam: algo havia tocado o coração do mundo.")
-    print("Elandor, criado entre pergaminhos vivos e espíritos antigos, foi o escolhido pelo Círculo Verde para compreender essa ruptura.")
+    print("Arthur Leywin, criado entre pergaminhos vivos e espíritos antigos, foi o escolhido pelo Círculo Verde para compreender essa ruptura.")
     pause = input("Aperte qualquer tecla para continuar...\n")
     limparTELA()
 
 
     print("Guiado por visões, ele encontrou o Altar das Folhas Eternas — um santuário escondido na raiz da árvore mais velha da floresta.")
-    print("Lá, diante do espelho de Thal’Miren, artefato selado por eras, Elandor viu a destruição de Legondira. O céu rasgado. O fogo eterno. Sephiroth.")
+    print("Lá, diante do espelho de Thal’Miren, artefato selado por eras, Arthur Leywin viu a destruição de Legondira. O céu rasgado. O fogo eterno. Sephiroth.")
     print("E, no reflexo, viu a si mesmo... em chamas, em sombra, em ascensão.")
     pause = input("Aperte qualquer tecla para continuar...\n")
     limparTELA()
 
-    print("Ao tocar o espelho, Elandor foi marcado pela Essência Espectral — uma magia viva, mutável, que desafia as leis do tempo e da matéria.")
+    print("Ao tocar o espelho, Arthur Leywin foi marcado pela Essência Espectral — uma magia viva, mutável, que desafia as leis do tempo e da matéria.")
     print("Ele não apenas viu o futuro: ele se tornou parte dele.")
     pause = input("Aperte qualquer tecla para continuar...\n")
     limparTELA()
@@ -803,7 +977,6 @@ else:
 #impede o uso de digitar errado
 while decisao_ini != "1" and decisao_ini != "2" and decisao_ini != "3":
     #mensagem de teste
-    print("\no que voce vai fazer agora? ¯\_(ツ)_/¯\n")
 
     #estrutura para decidir inicio da historia
 
@@ -820,7 +993,7 @@ while decisao_ini != "1" and decisao_ini != "2" and decisao_ini != "3":
         limparTELA()
         while decisao_city != "1" and decisao_city != "2":
             print("escolha seu destino:")
-            decisao_city = input("1- vilarejo\n2- precipicio\n:")
+            decisao_city = input("1- Cânion Cozz\n2- Vilarejo destruído de Ludwig \n:")
             if decisao_city == "1":
                 limparTELA()
                 vilarejo()
@@ -837,3 +1010,8 @@ while decisao_ini != "1" and decisao_ini != "2" and decisao_ini != "3":
     else:
         limparTELA()
         print("vamos la eu sei que voce consegue, escolha 1, 2 ou 3 ;)")
+        limparTELA()
+        print("1- Permanecer na Floresta de Nack e desvendar os ecos da magia élfica?")
+        print("2- Viajar até o Vilarejo destruído de Ludwig ou explorar o Cânion Cozz em busca de relíquias antigas?")
+        print("3- Arriscar tudo e seguir até Libertalia ou mesmo enfrentar Sephiroth antes que ele ataque novamente?")
+        print("\no que voce vai fazer agora eu sei que voçê não é tão burro ¯\_(ツ)_/¯\n")
