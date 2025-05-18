@@ -226,7 +226,6 @@ def vulcao():
                 limparTELA()
                 print("NAO EXISTE ESSA OPCAO!!!!!\n")
 
-
         if aliveG == True:
             pause = input("aperte qualquer tecla para continuar:\n")
             limparTELA()
@@ -381,8 +380,222 @@ def precipicio():
     print("precipicio")
 
 def floresta():
-    #leva para a floresta
-    print("floresta")
+    # leva para as Ruínas Arcanas
+    print("As Ruínas Arcanas\n")
+
+    def inimigo1_mago():
+        lifeE = 2
+        attackE = 2
+        defenseE = 2
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    def inimigo2_mago():
+        lifeE = 3
+        attackE = 3
+        defenseE = 3
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    def inimigo3_mago():
+        lifeE = 4
+        attackE = 6
+        defenseE = 5
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    cont = 0
+    alive = True
+    aliveG = True
+    LevelComplet = False
+    vida = life
+    esco_lutar = ""
+    dead = 0
+
+    print("Você decide explorar as Ruínas Arcanas, um local ancestral onde o éter pulsa com magia esquecida.")
+    print("A varinha vibra em sua mão. Ecos de antigos magos ressoam pelas paredes.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+
+    print("Primeiro inimigo: Spectrus, o Fragmento de Luz.")
+    print("Um ser feito de pura energia mágica, frágil, mas com ataques letais de luz concentrada.")
+    pause = input("Prepare-se para lutar. Aperte qualquer tecla...\n")
+
+    while aliveG and not LevelComplet:
+        while esco_lutar != "1" and esco_lutar != "2":
+            esco_lutar = input("1- lutar\n2- fugir\n:")
+
+            if esco_lutar == "1":
+                limparTELA()
+                print("Você escolheu lutar\n")
+                lifeE, attackE, defenseE, aliveE = inimigo1_mago()
+
+                while alive and aliveE:
+                    cont += 1
+                    resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
+                    lifeE = max(lifeE - resultAttack, 0)
+
+                    print("Você conjurou uma magia que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
+
+                    if lifeE <= 0:
+                        aliveE = False  
+                        print("Fim do combate\n")
+                        cont = 0
+                        vida = life
+                        break
+                    else:
+                        pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
+                        limparTELA()
+
+                    resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                    vida = max(vida - resultAttackE, 0)
+
+                    print("Você foi atingido por magia e sofreu", resultAttackE, "de dano\nSua vida atual:", vida)
+
+                    if vida <= 0:
+                        alive = False
+                        print("Você foi derrotado.\n")
+                        aliveG = False
+                        dead = 1
+                        break
+                    else:
+                        print("Fim da rodada", cont)
+                        pause = input("Aperte qualquer tecla para continuar...\n")
+                        limparTELA()
+
+            elif esco_lutar == "2":
+                limparTELA()
+                print("Você fugiu da luta.\n")
+            else:
+                limparTELA()
+                print("Opção inválida!\n")
+
+        if aliveG:
+            pause = input("Aperte qualquer tecla para continuar...\n")
+            limparTELA()
+            print("Segundo inimigo: Akyra, a Tecelã do Caos.")
+            print("Uma maga espectral que usa ilusões para confundir sua mente.")
+            pause = input("Prepare-se para enfrentar as distorções arcanas...\n")
+            esco_lutar = ""
+
+            while esco_lutar != "1" and esco_lutar != "2":
+                esco_lutar = input("1- lutar\n2- fugir\n:")
+
+                if esco_lutar == "1":
+                    limparTELA()
+                    print("Você escolheu lutar\n")
+                    lifeE, attackE, defenseE, aliveE = inimigo2_mago()
+
+                    while alive and aliveE:
+                        cont += 1
+                        resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
+                        lifeE = max(lifeE - resultAttack, 0)
+
+                        print("Você conjurou uma magia que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
+
+                        if lifeE <= 0:
+                            aliveE = False  
+                            print("Fim do combate\n")
+                            cont = 0
+                            vida = life
+                            break
+                        else:
+                            pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
+                            limparTELA()
+
+                        resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                        vida = max(vida - resultAttackE, 0)
+
+                        print("Você foi atingido por magia e sofreu", resultAttackE, "de dano\nSua vida atual:", vida)
+
+                        if vida <= 0:
+                            alive = False
+                            print("Você foi derrotado.\n")
+                            aliveG = False
+                            dead = 1
+                            break
+                        else:
+                            print("Fim da rodada", cont)
+                            pause = input("Aperte qualquer tecla para continuar...\n")
+                            limparTELA()
+
+                elif esco_lutar == "2":
+                    limparTELA()
+                    print("Você fugiu da luta.\n")
+                else:
+                    limparTELA()
+                    print("Opção inválida!\n")
+
+        if aliveG:
+            pause = input("Aperte qualquer tecla para continuar...\n")
+            limparTELA()
+            print("Terceiro inimigo: Vyserion, o Arcanista Sombrio.")
+            print("Último guardião das ruínas, ele canaliza magia pura da terra para se regenerar.")
+            print("Essa será sua batalha mais difícil.")
+            pause = input("Prepare-se para a batalha final!\n")
+            esco_lutar = ""
+
+            while esco_lutar != "1" and esco_lutar != "2":
+                esco_lutar = input("1- lutar\n2- fugir\n:")
+
+                if esco_lutar == "1":
+                    limparTELA()
+                    print("Você escolheu lutar\n")
+                    lifeE, attackE, defenseE, aliveE = inimigo3_mago()
+
+                    while alive and aliveE:
+                        cont += 1
+                        resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
+                        lifeE = max(lifeE - resultAttack, 0)
+
+                        print("Você conjurou uma magia que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
+
+                        if lifeE <= 0:
+                            aliveE = False  
+                            print("Fim do combate\n")
+                            cont = 0
+                            vida = life
+                            break
+                        else:
+                            pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
+                            limparTELA()
+
+                        resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                        vida = max(vida - resultAttackE, 0)
+
+                        print("Você foi atingido por magia e sofreu", resultAttackE, "de dano\nSua vida atual:", vida)
+
+                        if vida <= 0:
+                            alive = False
+                            print("Você foi derrotado.\n")
+                            aliveG = False
+                            dead = 1
+                            break
+                        else:
+                            print("Fim da rodada", cont)
+                            pause = input("Aperte qualquer tecla para continuar...\n")
+                            limparTELA()
+
+                elif esco_lutar == "2":
+                    limparTELA()
+                    print("Você fugiu da luta.\n")
+                else:
+                    limparTELA()
+                    print("Opção inválida!\n")
+
+        if aliveG:
+            LevelComplet = True
+            pause = input("Aperte qualquer tecla para continuar...\n")
+            limparTELA()
+            print("Com a vitória sobre Vyserion, sua mente se abre para segredos antigos.")
+            print("Você domina um novo feitiço: 'Éter Primordial'.")
+            pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+
+        elif dead == 1:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("game over") 
+            dead = 0
+
 
 def mage():
     #status do mago
@@ -411,6 +624,7 @@ decisao_city = ""
 esco_persona = ""
 start_point = ""
 life, atack, defense, start_point, info_Stats = 0, 0, 0, "", ""
+xpbase = 0
 
 print("O Reino de Libertália era um símbolo de equilíbrio e poder, onde magos e guerreiros viviam em paz,")
 print("protegendo suas terras sob a liderança justa do Império Libertália — uma cidade majestosa localizada no centro do reino.\n")
@@ -544,8 +758,46 @@ if start_point == "V":
     print("1- Investigar a Fenda do Vulcão?\n2- Viajar em busca de poder para o Canyon Cozz ou para o Vilarejo de Ludwig?\n3- ignorar tudo e enfrentar Sephiroth com o Poder atual")
 
 else:
-    print("Voce escolheu o Mago\n")
-    print("1- Investigar ponto de origem \n2- Viajar em busca de poder \n3- enfrentar Boss final")
+    print("Quando Sephiroth, o ser sombrio de poder devastador, lançou sua maldição sobre Legondira — uma onda de morte e esquecimento — ninguém conseguiu reagir. Exceto ele.")
+    print("Nas profundezas da Floresta Encantada de Nack, onde os sussurros das árvores guardam a memória do mundo, Elandor despertou de um transe antigo.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+
+    print("As copas estremeciam sem vento. O canto dos pássaros cessou. Os rios que serpenteavam os carvalhos ancestrais pareciam hesitar.")
+    print("Os elfos anciões, guardiões do Equilíbrio Mágico, sabiam: algo havia tocado o coração do mundo.")
+    print("Elandor, criado entre pergaminhos vivos e espíritos antigos, foi o escolhido pelo Círculo Verde para compreender essa ruptura.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+
+
+    print("Guiado por visões, ele encontrou o Altar das Folhas Eternas — um santuário escondido na raiz da árvore mais velha da floresta.")
+    print("Lá, diante do espelho de Thal’Miren, artefato selado por eras, Elandor viu a destruição de Legondira. O céu rasgado. O fogo eterno. Sephiroth.")
+    print("E, no reflexo, viu a si mesmo... em chamas, em sombra, em ascensão.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+
+    print("Ao tocar o espelho, Elandor foi marcado pela Essência Espectral — uma magia viva, mutável, que desafia as leis do tempo e da matéria.")
+    print("Ele não apenas viu o futuro: ele se tornou parte dele.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+
+    print("Agora, a floresta o teme e o reverencia. Os animais se ajoelham, os rios murmuram seu nome, e os espíritos antigos o testam.")
+    print("Mas o tempo urge. Sephiroth não está longe — sua presença já fere o mundo. O Imperador de Libertalia começa a silenciar magos. E as sombras se alastram.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+
+    print("A voz do espelho ecoa em sua mente como folhas ao vento:")
+    print('“Os olhos do inimigo já pousaram sobre ti... mas és tu quem escolhe onde cairá tua primeira chama.”')
+    print("Você sente a floresta chamando... mas sabe que o mundo além das árvores precisa de você.")
+    print("O vilarejo de Ludwig foi destruído, mas pode conter relíquias dos primeiros elfos humanos.")
+    print("O Cânion Cozz esconde ruínas onde a magia flui sem regras. E o Império Libertalia... talvez nem tudo esteja perdido por lá.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+    limparTELA()
+
+    print("1- Permanecer na Floresta de Nack e desvendar os ecos da magia élfica?")
+    print("2- Viajar até o Vilarejo destruído de Ludwig ou explorar o Cânion Cozz em busca de relíquias antigas?")
+    print("3- Arriscar tudo e seguir até Libertalia ou mesmo enfrentar Sephiroth antes que ele ataque novamente?")
+
 
 
 #impede o uso de digitar errado
