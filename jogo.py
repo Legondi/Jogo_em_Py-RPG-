@@ -476,23 +476,23 @@ def precipicio():
     print("O precipício da Morte\n")
 
     def inimigo1_pre():
-        lifeE = 2
-        attackE = 2
-        defenseE = 2
+        lifeE = 20
+        attackE = 40
+        defenseE = 5
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
     def inimigo2_pre():
-        lifeE = 3
-        attackE = 3
-        defenseE = 3
+        lifeE = 25
+        attackE = 20
+        defenseE = 30
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
     def inimigo3_pre():
-        lifeE = 4
-        attackE = 6
-        defenseE = 5
+        lifeE = 50
+        attackE = 70
+        defenseE = 30
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
@@ -747,9 +747,9 @@ def precipicio():
             pause = input("Pressione qualquer tecla para continuar...\n")
             limparTELA()
             
-            atack += 3000
-            life += 15000
-            defense += 5000
+            atack += 80
+            life += 225
+            defense += 45
             mostrar_status()
             pause = input("Pressione qualquer tecla para continuar...\n")
             print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo .")
@@ -892,6 +892,8 @@ def floresta():
                     print("Você derrotou Ashkar com dificuldade. Ele era um adversário formidável.")
                     sistema_de_xp()
 
+
+            #teste
 
         if aliveG:
             pause = input("Aperte qualquer tecla para continuar...\n")
