@@ -279,6 +279,7 @@ def vulcao():
                             aliveE = False 
                             print ("Fim do combate\n")
                             vida = life
+                            cont = 0
                             break
 
 
@@ -830,7 +831,7 @@ def floresta():
                     if lifeE <= 0:
                         aliveE = False  
                         print("Fim do combate\n")
-                        cont = 0
+                        
                         vida = life
                         break
                     else:
@@ -846,6 +847,7 @@ def floresta():
                         alive = False
                         print("Você foi derrotado.\n")
                         aliveG = False
+                        cont = 0
                         dead = 1
                         break
                     else:
@@ -871,10 +873,10 @@ def floresta():
                 pause = input("Aperte qualquer tecla para continuar...\n")
                 
                 limparTELA()
-                if cont <= 1:
+                if cont <= 6:
                     print("Você derrotou Ashkar com facilidade. Ele não era digno de ser seu oponente.")
                     sistema_de_xp()
-                elif cont <= 3:
+                elif cont <= 15:
                     print("Você derrotou Ashkar com dificuldade. Ele era um adversário formidável.")
                     sistema_de_xp()
 
@@ -893,6 +895,7 @@ def floresta():
                 if esco_lutar == "1":
                     limparTELA()
                     print("Você escolheu lutar\n")
+                    cont = 0
                     lifeE, attackE, defenseE, aliveE = inimigo2_mago()
 
                     while alive and aliveE:
@@ -923,6 +926,7 @@ def floresta():
                             alive = False
                             print("Você foi derrotado.\n")
                             aliveG = False
+                            cont = 0
                             dead = 1
                             break
 
@@ -939,28 +943,28 @@ def floresta():
                     limparTELA()
                     print("Opção inválida!\n")
 
+                if esco_lutar == "1" and dead == 0:
+                    if aliveG == True and lifeE <= 0:
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+                        print("Você derrotou Igraya, a Tecelã do Caos.")
+                        print("Ela desaparece em um redemoinho de ilusões, deixando para trás um fragmento de magia pura.")
+                        pause = input("Aperte qualquer tecla para continuar...\n")
+
+                    limparTELA()
+                    if cont <= 6:
+                        print("Você derrotou Igraya com facilidade. Suas ilusões não foram páreo para sua determinação.")
+                        sistema_de_xp()
+                    elif cont <= 15:
+                        print("Você derrotou Igraya com dificuldade. Suas ilusões quase o levaram à derrota.")
+                        sistema_de_xp()
+
+
         elif dead == 1:
             pause = input("aperte qualquer tecla para continuar:\n")
             limparTELA()
             print("game over")
             dead = 0
-
-
-        if esco_lutar == "1":
-            if aliveG == True and lifeE <= 0:
-                pause = input("aperte qualquer tecla para continuar:\n")
-                limparTELA()
-                print("Você derrotou Igraya, a Tecelã do Caos.")
-                print("Ela desaparece em um redemoinho de ilusões, deixando para trás um fragmento de magia pura.")
-                pause = input("Aperte qualquer tecla para continuar...\n")
-            
-            limparTELA()
-            if cont <= 1:
-                print("Você derrotou Igraya com facilidade. Suas ilusões não foram páreo para sua determinação.")
-                sistema_de_xp()
-            elif cont <= 3:
-                print("Você derrotou Igraya com dificuldade. Suas ilusões quase o levaram à derrota.")
-                sistema_de_xp()
 
         if aliveG:
             pause = input("Aperte qualquer tecla para continuar...\n")
@@ -986,8 +990,24 @@ def floresta():
                 if lifeE <= 0:
                     aliveE = False  
                     print("Fim do combate\n")
-                    cont = 0
                     vida = life
+                    dead = 0
+                    if dead == 0:
+                        mostrar_status()
+                        if aliveG == True and lifeE <= 0:
+                            pause = input("aperte qualquer tecla para continuar:\n")
+                            limparTELA()
+                            print("Você derrotou Vyserion, o Arcanista Sombrio.")
+                            print("Ele cai de joelhos, sua magia se dissipando no ar, deixando para trás um núcleo de energia arcana.")
+                            pause = input("Aperte qualquer tecla para continuar...\n")
+
+                        limparTELA()
+                        if cont <= 1:
+                            print("Você derrotou Vyserion com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
+                            sistema_de_xp()
+                        elif cont <= 3:
+                            print("Você derrotou Vyserion com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
+                            sistema_de_xp()
                     break
                 else:
                     pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
@@ -1015,65 +1035,49 @@ def floresta():
             dead = 0 
 
                 
-        if esco_lutar == "1":
-            mostrar_status()
-            if aliveG == True and lifeE <= 0:
-                pause = input("aperte qualquer tecla para continuar:\n")
-                limparTELA()
-                print("Você derrotou Vyserion, o Arcanista Sombrio.")
-                print("Ele cai de joelhos, sua magia se dissipando no ar, deixando para trás um núcleo de energia arcana.")
-                pause = input("Aperte qualquer tecla para continuar...\n")
-            
-            limparTELA()
-            if cont <= 1:
-                print("Você derrotou Vyserion com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
-                sistema_de_xp()
-            elif cont <= 3:
-                print("Você derrotou Vyserion com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
-                sistema_de_xp()
-
-        if Qtdlutas >= 2:
+        if aliveG == True:
             LevelComplet = True
-            pause = input("Aperte qualquer tecla para continuar...\n")
-            limparTELA()
-            print("Com a vitória sobre Vyserion, sua mente se abre para segredos antigos.")
-            print("Você domina um novo feitiço ✨🌀🔮: 'Éter Primordial'.")
-            pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
-            print("Você se torna o novo guardião das Ruínas Arcanas.")
-            print("A magia ancestral agora flui através de você, e o legado dos antigos magos vive em seu coração.")
-            print("Agora por sua coragem e determinação, você é digno de ser chamado de 'Guardião das Ruínas Arcanas'.")
-            pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
-            print("E ganha poder dos antigos magos elfos que habitavam as ruínas e seu corpo recebe tamanho poder.")
-            print("Agora está pronto para enfrentar o verdadeiro desafio.")
-            pause = input("Pressione qualquer tecla para continuar...\n")
-            limparTELA()
-            
-            atack =+ 3000
-            life =+ 15000
-            defense =+ 5000
-            mostrar_status()
-            pause = input("Pressione qualquer tecla para continuar...\n")
-            print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo .")
-            batalha_final()
-            exit()  
-
-        elif Qtdlutas < 2: 
-            print("Você está pronto o suficiente para enfrentar o verdadeiro desafio.")
-            pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
-            limparTELA()
-            print("E não ganha poder dos antigos magos elfos que habitavam as ruínas pois seu corpo não esta fortalecido o suficiente.")
-            print("Agora terá que ir enfrentar o verdadeiro desafio sem esse poder.")
-            pause = input("Pressione qualquer tecla para continuar...\n")
-            limparTELA()
-            
-            mostrar_status()
-            pause = input("Pressione qualquer tecla para continuar...\n")
-            
-            print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo mesmo sem receber o grande poder .")
-            pause = input("Pressione qualquer tecla para continuar...\n")
-            limparTELA()
-            batalha_final()
-            exit()
+            if Qtdlutas >= 2:
+                pause = input("Aperte qualquer tecla para continuar...\n")
+                limparTELA()
+                print("Com a vitória sobre Vyserion, sua mente se abre para segredos antigos.")
+                print("Você domina um novo feitiço ✨🌀🔮: 'Éter Primordial'.")
+                pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+                print("Você se torna o novo guardião das Ruínas Arcanas.")
+                print("A magia ancestral agora flui através de você, e o legado dos antigos magos vive em seu coração.")
+                print("Agora por sua coragem e determinação, você é digno de ser chamado de 'Guardião das Ruínas Arcanas'.")
+                pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+                print("E ganha poder dos antigos magos elfos que habitavam as ruínas e seu corpo recebe tamanho poder.")
+                print("Agora está pronto para enfrentar o verdadeiro desafio.")
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                limparTELA()
+                
+                atack =+ 75
+                life =+ 250
+                defense =+ 40
+                mostrar_status()
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo .")
+                batalha_final()
+                exit()  
+    
+            elif Qtdlutas < 2: 
+                print("Você está pronto o suficiente para enfrentar o verdadeiro desafio.")
+                pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+                limparTELA()
+                print("E não ganha poder dos antigos magos elfos que habitavam as ruínas pois seu corpo não esta fortalecido o suficiente.")
+                print("Agora terá que ir enfrentar o verdadeiro desafio sem esse poder.")
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                limparTELA()
+                
+                mostrar_status()
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                
+                print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo mesmo sem receber o grande poder .")
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                limparTELA()
+                batalha_final()
+                exit()
 
         elif dead == 1:
             pause = input("aperte qualquer tecla para continuar:\n")
