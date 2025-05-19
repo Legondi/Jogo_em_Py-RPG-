@@ -120,7 +120,7 @@ def batalha_final():
 
             else:
                 limparTELA()
-                print("NAO EXISTE ESSA OPCAO!!!!!\n")
+                
 
 def vilarejo():
     global Qtdlutas, life, atack, defense, level, xpAtual
