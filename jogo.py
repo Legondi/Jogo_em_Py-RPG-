@@ -118,13 +118,14 @@ def vilarejo():
 
 def vulcao():
     #leva para o vulcao
+    global Qtdlutas, life, atack, defense, level, xpAtual   
     print("vulcao\n")
 
     def inimigo1():
 
         lifeE = 1
         attackE= 1
-        defenseE = 3
+        defenseE = 1
         aliveE = True
 
         return lifeE, attackE, defenseE, aliveE
@@ -133,15 +134,15 @@ def vulcao():
 
         lifeE = 1
         attackE= 1
-        defenseE = 3
+        defenseE = 1
         aliveE = True
 
         return lifeE, attackE, defenseE, aliveE
 
     def inimigo3():
 
-        lifeE = 1
-        attackE= 40
+        lifeE = 1000000000000000000000000000
+        attackE= 400000000000000000000000000000
         defenseE = 3
         aliveE = True
 
@@ -178,10 +179,8 @@ def vulcao():
 
                 while alive == True and aliveE == True:
                     cont = cont + 1
-                    print (life)
-                    print (vida)
-                    resultAttack = max(random.randint(1, atack) - random.randint(1, defenseE), 0)
-
+                    Qtdlutas = Qtdlutas + 1
+                    resultAttack = max(random.randint(1, int(atack + (lifeE / 6))) - random.randint(1, defenseE), 0)
                     lifeE = max(lifeE - resultAttack, 0)
 
                     print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
@@ -228,6 +227,25 @@ def vulcao():
                 limparTELA()
                 print("NAO EXISTE ESSA OPCAO!!!!!\n")
 
+
+            if esco_lutar == "1" and dead == 0:
+                if aliveG == True and lifeE <= 0:
+                    pause = input("aperte qualquer tecla para continuar:\n")
+                    limparTELA()
+                    print("Você derrotou Ashkar, o Guardião das Cinzas.")
+                    print("Ele se desfaz em cinzas, revelando um fragmento de poder escondido.")
+                    pause = input("Aperte qualquer tecla para continuar...\n")
+                    
+                    limparTELA()
+                    if cont <= 1:
+                        print("Você derrotou Ashkar com facilidade. Ele não era digno de ser seu oponente.")
+                        sistema_de_xp()
+                    elif cont <= 3:
+                        print("Você derrotou Ashkar com dificuldade. Ele era um adversário formidável.")
+                        sistema_de_xp()
+
+        
+
         if aliveG == True:
             pause = input("aperte qualquer tecla para continuar:\n")
             limparTELA()
@@ -250,10 +268,8 @@ def vulcao():
 
                     while alive == True and aliveE == True:
                         cont = cont + 1
-                        print (life)
-                        print (vida)
-                        resultAttack = max(random.randint(1, atack) - random.randint(1, defenseE), 0)
-
+                        Qtdlutas = Qtdlutas + 1
+                        resultAttack = max(random.randint(1, int(atack + (lifeE / 6))) - random.randint(1, defenseE), 0)
                         lifeE = max(lifeE - resultAttack, 0)
 
                         print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
@@ -300,6 +316,22 @@ def vulcao():
                     limparTELA()
                     print("...\n")
 
+                if esco_lutar == "1" and dead == 0:
+                    if aliveG == True and lifeE <= 0:
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+                        print("Você derrotou Akyra, a Tecelã do Caos.")
+                        print("Ela desaparece em um redemoinho de ilusões, deixando para trás um fragmento de magia pura.")
+                        pause = input("Aperte qualquer tecla para continuar...\n")
+
+                    limparTELA()
+                    if cont <= 1:
+                        print("Você derrotou Akyra com facilidade. Suas ilusões não foram páreo para sua determinação.")
+                        sistema_de_xp()
+                    elif cont <= 3:
+                        print("Você derrotou Akyra com dificuldade. Suas ilusões quase o levaram à derrota.")
+                        sistema_de_xp()
+
         elif dead == 1:
             pause = input("aperte qualquer tecla para continuar:\n")
             limparTELA()
@@ -321,9 +353,9 @@ def vulcao():
 
             while alive == True and aliveE == True:
                 cont = cont + 1
-                print (life)
-                print (vida)
-                resultAttack = max(random.randint(1, atack) - random.randint(1, defenseE), 0)
+                Qtdlutas = Qtdlutas + 1
+
+                resultAttack = max(random.randint(1, int(atack + (lifeE / 6))) - random.randint(1, defenseE), 0)
                 lifeE = max(lifeE - resultAttack, 0)
                 print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
 
@@ -332,6 +364,24 @@ def vulcao():
                     print ("Fim do combate\n")
                     cont = 0
                     vida = life
+                    dead = 0
+                    
+                    if dead == 0:
+                        
+                        if aliveG == True and lifeE <= 0:
+                            pause = input("aperte qualquer tecla para continuar:\n")
+                            limparTELA()
+                            print("Você derrotou Vyserion, o Arcanista Sombrio.")
+                            print("Ele cai de joelhos, sua magia se dissipando no ar, deixando para trás um núcleo de energia arcana.")
+                            pause = input("Aperte qualquer tecla para continuar...\n")
+
+                        limparTELA()
+                        if cont <= 1:
+                            print("Você derrotou Vyserion com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
+                            sistema_de_xp()
+                        elif cont <= 3:
+                            print("Você derrotou Vyserion com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
+                            sistema_de_xp()
                     break
                 else:
                     pause = input("rodada do adversario aperte qualquer tecla para continuar:\n")
@@ -353,6 +403,7 @@ def vulcao():
                     pause = input("aperte qualquer tecla para continuar:\n")
                     limparTELA()
 
+                
         elif dead == 1:
             pause = input("aperte qualquer tecla para continuar:\n")
             limparTELA()
@@ -363,13 +414,42 @@ def vulcao():
             LevelComplet = True
             pause = input("aperte enter para continuar")
             limparTELA()
-            print("Com a vitória sobre N’zurak, você sente uma onda de poder invadir seu corpo.")
-            print("O fragmento escondido do verdadeiro poder de Legondi foi absorvido por Abyssviolet.")
-            print("Sua chama agora pulsa em azul profundo. A espada exige mais... mas está satisfeita, por ora.")
-            pause = input("Hora de enfrentar Sephiroth. Aperte qualquer tecla para continuar...\n")
 
-            limparTELA()
-            batalha_final()
+            if Qtdlutas >= 2:
+            
+                print("Com a vitória sobre N’zurak, você sente uma onda de poder invadir seu corpo.")
+                print("O fragmento escondido do verdadeiro poder de Legondi foi absorvido por Abyssviolet.")
+                print("Sua chama agora pulsa em azul profundo. A espada exige mais... mas está satisfeita, por ora.")
+                pause = input("Hora de enfrentar Sephiroth. Aperte qualquer tecla para continuar...\n")
+                limparTELA()
+            
+                atack =+ 3000
+                life =+ 15000
+                defense =+ 5000
+                mostrar_status()
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo .")
+                batalha_final()
+                exit()
+
+            elif Qtdlutas < 2: 
+                print("Você está pronto o suficiente para enfrentar o verdadeiro desafio.")
+                pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+                limparTELA()
+                print("E não ganha poder dos antigos magos elfos que habitavam as ruínas pois seu corpo não esta fortalecido o suficiente.")
+                print("Agora terá que ir enfrentar o verdadeiro desafio sem esse poder.")
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                limparTELA()
+
+                mostrar_status()
+                pause = input("Pressione qualquer tecla para continuar...\n")
+
+                print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo mesmo sem receber o grande poder .")
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                limparTELA()
+                batalha_final()
+                exit()
+
         elif dead == 1:
             pause = input("aperte qualquer tecla para continuar:\n")
             limparTELA()
@@ -742,7 +822,7 @@ def floresta():
                 while alive and aliveE:
                     cont += 1
                     Qtdlutas += 1
-                    resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
+                    resultAttack = max(random.randint(1, atack + int((0.2 * cont))) - random.randint(1, defenseE), 0)
                     lifeE = max(lifeE - resultAttack, 0)
 
                     print("Você conjurou uma magia que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
@@ -799,8 +879,6 @@ def floresta():
                     sistema_de_xp()
 
 
-
-
         if aliveG:
             pause = input("Aperte qualquer tecla para continuar...\n")
             limparTELA()
@@ -820,7 +898,7 @@ def floresta():
                     while alive and aliveE:
                         cont += 1
                         Qtdlutas += 1
-                        resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
+                        resultAttack = max(random.randint(1, atack + int((0.2 * cont))) - random.randint(1, defenseE), 0)
                         lifeE = max(lifeE - resultAttack, 0)
 
                         print("Você conjurou uma magia que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
@@ -841,11 +919,13 @@ def floresta():
                         print("Você foi atingido por magia e sofreu", resultAttackE, "de dano\nSua vida atual:", vida)
 
                         if vida <= 0:
+
                             alive = False
                             print("Você foi derrotado.\n")
                             aliveG = False
                             dead = 1
                             break
+
                         else:
                             print("Fim da rodada", cont)
                             pause = input("Aperte qualquer tecla para continuar...\n")
@@ -859,21 +939,28 @@ def floresta():
                     limparTELA()
                     print("Opção inválida!\n")
 
-                if esco_lutar == "1":
-                    if aliveG == True and lifeE <= 0:
-                        pause = input("aperte qualquer tecla para continuar:\n")
-                        limparTELA()
-                        print("Você derrotou Akyra, a Tecelã do Caos.")
-                        print("Ela desaparece em um redemoinho de ilusões, deixando para trás um fragmento de magia pura.")
-                        pause = input("Aperte qualquer tecla para continuar...\n")
-                    
-                    limparTELA()
-                    if cont <= 1:
-                        print("Você derrotou Akyra com facilidade. Suas ilusões não foram páreo para sua determinação.")
-                        sistema_de_xp()
-                    elif cont <= 3:
-                        print("Você derrotou Akyra com dificuldade. Suas ilusões quase o levaram à derrota.")
-                        sistema_de_xp()
+        elif dead == 1:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("game over")
+            dead = 0
+
+
+        if esco_lutar == "1":
+            if aliveG == True and lifeE <= 0:
+                pause = input("aperte qualquer tecla para continuar:\n")
+                limparTELA()
+                print("Você derrotou Akyra, a Tecelã do Caos.")
+                print("Ela desaparece em um redemoinho de ilusões, deixando para trás um fragmento de magia pura.")
+                pause = input("Aperte qualquer tecla para continuar...\n")
+            
+            limparTELA()
+            if cont <= 1:
+                print("Você derrotou Akyra com facilidade. Suas ilusões não foram páreo para sua determinação.")
+                sistema_de_xp()
+            elif cont <= 3:
+                print("Você derrotou Akyra com dificuldade. Suas ilusões quase o levaram à derrota.")
+                sistema_de_xp()
 
         if aliveG:
             pause = input("Aperte qualquer tecla para continuar...\n")
@@ -882,73 +969,69 @@ def floresta():
             print("Último guardião das ruínas, ele canaliza magia pura da terra para se regenerar.")
             print("Essa será sua batalha mais difícil.")
             pause = input("Prepare-se para a batalha final!\n")
-            esco_lutar = ""
+        
+            lifeE, attackE, defenseE, aliveE = inimigo3_mago()
 
-            while esco_lutar != "1" and esco_lutar != "2":
-                esco_lutar = input("1- lutar\n2- fugir\n:")
+            pause = input("voce esta indo para a batalha final obrigatoria da fenda do vulcao\nAperte qualquer tecla para continuar")
+            limparTELA()
+    
+            while alive and aliveE:
+                cont += 1
+                Qtdlutas += 1
 
-                if esco_lutar == "1":
-                    limparTELA()
-                    print("Você escolheu lutar\n")
-                    lifeE, attackE, defenseE, aliveE = inimigo3_mago()
+                resultAttack = max(random.randint(1, atack + int((0.2 * cont))) - random.randint(1, defenseE), 0)
+                lifeE = max(lifeE - resultAttack, 0)
+                print("Você conjurou uma magia que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
 
-                    while alive and aliveE:
-                        cont += 1
-                        Qtdlutas += 1
-                        resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
-                        lifeE = max(lifeE - resultAttack, 0)
-
-                        print("Você conjurou uma magia que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
-
-                        if lifeE <= 0:
-                            aliveE = False  
-                            print("Fim do combate\n")
-                            cont = 0
-                            vida = life
-                            break
-                        else:
-                            pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
-                            limparTELA()
-
-                        resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
-                        vida = max(vida - resultAttackE, 0)
-
-                        print("Você foi atingido por magia e sofreu", resultAttackE, "de dano\nSua vida atual:", vida)
-
-                        if vida <= 0:
-                            alive = False
-                            print("Você foi derrotado.\n")
-                            aliveG = False
-                            dead = 1
-                            break
-                        else:
-                            print("Fim da rodada", cont)
-                            pause = input("Aperte qualquer tecla para continuar...\n")
-                            limparTELA()
-
-                elif esco_lutar == "2":
-                    limparTELA()
-                    print("Você fugiu da luta.\n")
-                    mostrar_status()
+                if lifeE <= 0:
+                    aliveE = False  
+                    print("Fim do combate\n")
+                    cont = 0
+                    vida = life
+                    break
                 else:
+                    pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
                     limparTELA()
-                    print("Opção inválida!\n")
+
+                resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                vida = max(vida - resultAttackE, 0)
+                print("Você foi atingido por magia e sofreu", resultAttackE, "de dano\nSua vida atual:", vida)
+
+                if vida <= 0:
+                    alive = False
+                    print("Você foi derrotado.\n")
+                    aliveG = False
+                    dead = 1
+                    break
+                else:
+                    print("Fim da rodada", cont)
+                    pause = input("Aperte qualquer tecla para continuar...\n")
+                    limparTELA()
+         
+        elif dead == 1:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("game over")
+            dead = 0 
+
                 
-                if esco_lutar == "1":
-                    if aliveG == True and lifeE <= 0:
-                        pause = input("aperte qualquer tecla para continuar:\n")
-                        limparTELA()
-                        print("Você derrotou Vyserion, o Arcanista Sombrio.")
-                        print("Ele cai de joelhos, sua magia se dissipando no ar, deixando para trás um núcleo de energia arcana.")
-                        pause = input("Aperte qualquer tecla para continuar...\n")
-                    
-                    limparTELA()
-                    if cont <= 1:
-                        print("Você derrotou Vyserion com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
-                        sistema_de_xp()
-                    elif cont <= 3:
-                        print("Você derrotou Vyserion com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
-                        sistema_de_xp()
+        if esco_lutar == "1":
+            mostrar_status()
+            if aliveG == True and lifeE <= 0:
+                pause = input("aperte qualquer tecla para continuar:\n")
+                limparTELA()
+                print("Você derrotou Vyserion, o Arcanista Sombrio.")
+                print("Ele cai de joelhos, sua magia se dissipando no ar, deixando para trás um núcleo de energia arcana.")
+                pause = input("Aperte qualquer tecla para continuar...\n")
+            
+            limparTELA()
+            if cont <= 1:
+                print("Você derrotou Vyserion com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
+                sistema_de_xp()
+            elif cont <= 3:
+                print("Você derrotou Vyserion com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
+                sistema_de_xp()
+
         if Qtdlutas >= 2:
             LevelComplet = True
             pause = input("Aperte qualquer tecla para continuar...\n")
