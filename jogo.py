@@ -881,6 +881,8 @@ def floresta():
                     sistema_de_xp()
 
 
+            #teste
+
         if aliveG:
             pause = input("Aperte qualquer tecla para continuar...\n")
             limparTELA()
