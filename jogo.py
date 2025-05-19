@@ -60,6 +60,14 @@ def batalha_final():
                         print("║       Você superou todos os desafios!      ║")
                         print("║       A vitória é sua, grande herói!       ║")
                         print("╚════════════════════════════════════════════╝\n")
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+                        print("Você derrotou Sephiroth, o dono de todo caos e destruição.")
+                        print("Ele se desfaz em uma explosão de luz, agora a paz reina sobre o mundo.")
+                        print("Você se torna o novo guardião do mundo, um verdadeiro herói.")
+
+
+
                         cont = 0
                         vida = life
                         #add levelComplet True para encerrar o while e finalizar o game (Leonardo)
@@ -89,6 +97,10 @@ def batalha_final():
                         aliveG = False
                         dead = dead + 1
                         break
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+                        print("Você foi derrotado por Sephiroth, o dono de todo caos e destruição.")
+                        print("Agora o mundo está perdido, e a escuridão reina sobre tudo.")
 
                     else:
 
@@ -104,7 +116,7 @@ def batalha_final():
                 print("║     O mundo esperava um herói... mas       ║")
                 print("║         recebeu um fujão patético.         ║")
                 print("╚════════════════════════════════════════════╝\n")
-
+                
 
             else:
                 limparTELA()
@@ -775,23 +787,23 @@ def floresta():
     print("As Ruínas Arcanas\n")
 
     def inimigo1_mago():
-        lifeE = 2
-        attackE = 2
-        defenseE = 2
+        lifeE = 60
+        attackE = 60
+        defenseE = 10
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
     def inimigo2_mago():
-        lifeE = 3
-        attackE = 3
-        defenseE = 3
+        lifeE = 100
+        attackE = 80
+        defenseE = 20
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
     def inimigo3_mago():
-        lifeE = 4
-        attackE = 6
-        defenseE = 5
+        lifeE = 120
+        attackE = 90
+        defenseE = 30
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
@@ -838,7 +850,7 @@ def floresta():
                         pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
                         limparTELA()
 
-                    resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                    resultAttackE = max(random.randint(100, attackE) - random.randint(1, defense), 0)
                     vida = max(vida - resultAttackE, 0)
 
                     print("Você foi atingido por magia e sofreu", resultAttackE, "de dano\nSua vida atual:", vida)
@@ -1088,9 +1100,9 @@ def floresta():
 
 def mage():
     #status do mago
-    life = 10
-    atack = 5
-    defense = 6
+    life = 80
+    atack = 65
+    defense = 20
     start_point = "F"
     info_stats = f"Vida: {life}\nAtaque: {atack}\nDefesa: {defense}"
     return life, atack, defense, start_point, info_stats
@@ -1201,13 +1213,13 @@ print("╔═══════════════════════�
 print("║                                                                                    ║")
 print("║                                | L | I | B | E | R | T | A |                       ║")
 print("║                                                                                    ║")
-print("║                          UMA JORNADA DE MAGIA, BRAVURA E REDENÇÃO                   ║")
+print("║                          UMA JORNADA DE MAGIA, BRAVURA E REDENÇÃO                  ║")
 print("║                                                                                    ║")
-print("║        Em um reino mergulhado nas trevas, os últimos heróis se levantam.            ║")
-print("║     Magos e guerreiros se unem para desafiar o mal que consome Libertália.          ║")
-print("║      Suas escolhas forjarão o destino do reino... e do seu próprio legado.          ║")
+print("║        Em um reino mergulhado nas trevas, os últimos heróis se levantam.           ║")
+print("║     Magos e guerreiros se unem para desafiar o mal que consome Libertália.         ║")
+print("║      Suas escolhas forjarão o destino do reino... e do seu próprio legado.         ║")
 print("║                                                                                    ║")
-print("║                          ★ LIBERTA — O DESTINO ESTÁ EM SUAS MÃOS ★                  ║")
+print("║                          ★ LIBERTA — O DESTINO ESTÁ EM SUAS MÃOS ★                ║")
 print("║                                                                                    ║")
 print("╚════════════════════════════════════════════════════════════════════════════════════╝\n")
 
