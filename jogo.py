@@ -319,16 +319,16 @@ def vulcao():
                     if aliveG == True and lifeE <= 0:
                         pause = input("aperte qualquer tecla para continuar:\n")
                         limparTELA()
-                        print("Você derrotou Akyra, a Tecelã do Caos.")
-                        print("Ela desaparece em um redemoinho de ilusões, deixando para trás um fragmento de magia pura.")
+                        print("Você derrotou Igraya, a Salamandra da Ira.")
+                        print("Ao cair, seu corpo se cristaliza, deixando para trás um núcleo incandescente de poder.")
                         pause = input("Aperte qualquer tecla para continuar...\n")
 
                     limparTELA()
                     if cont <= 6:
-                        print("Você derrotou Akyra com facilidade. Suas ilusões não foram páreo para sua determinação.")
+                        print("Você derrotou Igraya com facilidade. Suas ilusões não foram páreo para sua determinação.")
                         sistema_de_xp()
                     elif cont <= 15:
-                        print("Você derrotou Akyra com dificuldade. Suas ilusões quase o levaram à derrota.")
+                        print("Você derrotou Igraya com dificuldade. Suas ilusões quase o levaram à derrota.")
                         sistema_de_xp()
 
         elif dead == 1:
@@ -371,16 +371,16 @@ def vulcao():
                         if aliveG == True and lifeE <= 0:
                             pause = input("aperte qualquer tecla para continuar:\n")
                             limparTELA()
-                            print("Você derrotou Vyserion, o Arcanista Sombrio.")
-                            print("Ele cai de joelhos, sua magia se dissipando no ar, deixando para trás um núcleo de energia arcana.")
+                            print("Você derrotou N’zurak, o Portador do Fragmento.")
+                            print("Ao cair, ele libera o último fragmento do poder flamejante que selava o coração do vulcão.")
                             pause = input("Aperte qualquer tecla para continuar...\n")
 
                         limparTELA()
                         if cont <= 6:
-                            print("Você derrotou Vyserion com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
+                            print("Você derrotou N’zurak com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
                             sistema_de_xp()
                         elif cont <= 15:
-                            print("Você derrotou Vyserion com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
+                            print("Você derrotou N’zurak com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
                             sistema_de_xp()
                     break
                 else:
@@ -882,7 +882,7 @@ def floresta():
         if aliveG:
             pause = input("Aperte qualquer tecla para continuar...\n")
             limparTELA()
-            print("Segundo inimigo: Akyra, a Tecelã do Caos.")
+            print("Segundo inimigo: Igraya, a Tecelã do Caos.")
             print("Uma maga espectral que usa ilusões para confundir sua mente.")
             pause = input("Prepare-se para enfrentar as distorções arcanas...\n")
             esco_lutar = ""
@@ -950,16 +950,16 @@ def floresta():
             if aliveG == True and lifeE <= 0:
                 pause = input("aperte qualquer tecla para continuar:\n")
                 limparTELA()
-                print("Você derrotou Akyra, a Tecelã do Caos.")
+                print("Você derrotou Igraya, a Tecelã do Caos.")
                 print("Ela desaparece em um redemoinho de ilusões, deixando para trás um fragmento de magia pura.")
                 pause = input("Aperte qualquer tecla para continuar...\n")
             
             limparTELA()
             if cont <= 1:
-                print("Você derrotou Akyra com facilidade. Suas ilusões não foram páreo para sua determinação.")
+                print("Você derrotou Igraya com facilidade. Suas ilusões não foram páreo para sua determinação.")
                 sistema_de_xp()
             elif cont <= 3:
-                print("Você derrotou Akyra com dificuldade. Suas ilusões quase o levaram à derrota.")
+                print("Você derrotou Igraya com dificuldade. Suas ilusões quase o levaram à derrota.")
                 sistema_de_xp()
 
         if aliveG:
