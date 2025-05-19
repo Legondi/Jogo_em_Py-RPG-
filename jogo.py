@@ -463,23 +463,23 @@ def precipicio():
     print("O precipício da Morte\n")
 
     def inimigo1_pre():
-        lifeE = 2
-        attackE = 2
-        defenseE = 2
+        lifeE = 20
+        attackE = 40
+        defenseE = 5
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
     def inimigo2_pre():
-        lifeE = 3
-        attackE = 3
-        defenseE = 3
+        lifeE = 25
+        attackE = 20
+        defenseE = 30
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
     def inimigo3_pre():
-        lifeE = 4
-        attackE = 6
-        defenseE = 5
+        lifeE = 50
+        attackE = 70
+        defenseE = 30
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
