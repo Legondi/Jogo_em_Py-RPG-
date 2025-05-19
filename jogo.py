@@ -111,10 +111,269 @@ def batalha_final():
                 print("NAO EXISTE ESSA OPCAO!!!!!\n")
 
 def vilarejo():
-    #leva para o vilarejo
-    print("Vilarejo\n")
+    global Qtdlutas, life, atack, defense, level, xpAtual
 
-    print ()
+    print("vilarejo\n")
+
+
+    def inimigo1():
+        lifeE = 60
+        attackE = 10
+        defenseE = 8
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    def inimigo2():
+        lifeE = 90
+        attackE = 20
+        defenseE = 12
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    def inimigo3():
+        lifeE = 150
+        attackE = 35
+        defenseE = 18
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    cont = 0
+    alive = True
+    aliveG = True
+    LevelComplet = False
+    vida = life
+    esco_lutar = ""
+    dead = 0
+
+    print("Você decidiu entrar nas ruínas do Vilarejo de Ludwig, um lugar envolto em névoa e memórias quebradas.")
+    print("As estruturas queimadas ecoam lamentos dos antigos moradores.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+
+    print("Primeiro inimigo: Sombra de Ludwig.")
+    print("Um espectro dos caídos, assombrado por dor e desespero.")
+    pause = input("Prepare-se para lutar. Aperte qualquer tecla...\n")
+
+    while aliveG == True and LevelComplet == False:
+        while esco_lutar != "1" and esco_lutar != "2":
+            esco_lutar = input("1- lutar\n2- fugir\n:")
+
+            if esco_lutar == "1":
+                limparTELA()
+                print("voce escolheu lutar\n")
+                lifeE, attackE, defenseE, aliveE = inimigo1()
+
+                while alive == True and aliveE == True:
+                    cont += 1
+                    Qtdlutas += 1
+                    resultAttack = max(random.randint(1, int(atack + (lifeE / 6))) - random.randint(1, defenseE), 0)
+                    lifeE = max(lifeE - resultAttack, 0)
+                    print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
+
+                    if lifeE <= 0:
+                        aliveE = False 
+                        print("Fim do combate\n")
+                        vida = life
+                        break
+
+                    pause = input("rodada do adversario aperte qualquer tecla para continuar:\n")
+                    limparTELA()
+                    resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                    vida = max(vida - resultAttackE, 0)
+                    print("Sombra de Ludwig usou lamento espectral e causou", resultAttackE, "de dano\nResta", vida, "da sua vida\n")
+
+                    if vida <= 0:
+                        alive = False 
+                        print("Fim do combate\n")
+                        cont = 0
+                        aliveG = False
+                        dead += 1
+                        break
+                    else:
+                        print("Fim da rodada", cont, "\n")
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+
+            elif esco_lutar == "2":
+                limparTELA()
+                print("voce fugiu\n")
+                return
+            else:
+                limparTELA()
+                print("NAO EXISTE ESSA OPCAO!!!!!\n")
+
+        if aliveG and lifeE <= 0:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("Você derrotou Sombra de Ludwig.")
+            print("Ela se desfaz em névoa, revelando ecos do passado.")
+            pause = input("Aperte qualquer tecla para continuar...\n")
+            limparTELA()
+            if cont <= 6:
+                print("Você derrotou Sombra de Ludwig com facilidade. Ela mal lembrava que estava viva.")
+            elif cont <= 15:
+                print("Você derrotou Sombra de Ludwig com dificuldade. Ela quase levou sua alma com ela.")
+            sistema_de_xp()
+
+        if dead == 1:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("game over")
+            return
+
+        # SEGUNDO INIMIGO
+        pause = input("aperte qualquer tecla para continuar:\n")
+        limparTELA()
+        print("Segundo inimigo: Cavaleiro Quebrado.")
+        print("Um antigo protetor de Ludwig, sem mente, apenas fúria.")
+        pause = input("Aperte qualquer tecla para continuar...\n")
+        esco_lutar = ""
+        while esco_lutar != "1" and esco_lutar != "2":
+            esco_lutar = input("1- lutar\n2- fugir\n:")
+
+            if esco_lutar == "1":
+                limparTELA()
+                print("voce escolheu lutar\n")
+                cont = 0
+                lifeE, attackE, defenseE, aliveE = inimigo2()
+                while alive and aliveE:
+                    cont += 1
+                    Qtdlutas += 1
+                    resultAttack = max(random.randint(1, int(atack + (lifeE / 6))) - random.randint(1, defenseE), 0)
+                    lifeE = max(lifeE - resultAttack, 0)
+                    print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
+
+                    if lifeE <= 0:
+                        aliveE = False 
+                        print("Fim do combate\n")
+                        vida = life
+                        break
+
+                    pause = input("rodada do adversario aperte qualquer tecla para continuar:\n")
+                    limparTELA()
+                    resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                    vida = max(vida - resultAttackE, 0)
+                    print("Cavaleiro Quebrado usou corte de ferro amaldiçoado e causou", resultAttackE, "de dano\nResta", vida, "da sua vida\n")
+
+                    if vida <= 0:
+                        alive = False 
+                        print("Fim do combate\n")
+                        cont = 0
+                        aliveG = False
+                        dead = 1
+                        break
+                    else:
+                        print("Fim da rodada", cont, "\n")
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+
+            elif esco_lutar == "2":
+                limparTELA()
+                print("voce fugiu\n")
+                return
+            else:
+                limparTELA()
+                print("...")
+
+        if aliveG and lifeE <= 0:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("Você derrotou Cavaleiro Quebrado.")
+            print("Ele desaba em armadura e poeira, libertando sua maldição.")
+            pause = input("Aperte qualquer tecla para continuar...\n")
+            limparTELA()
+            if cont <= 6:
+                print("Você derrotou Cavaleiro Quebrado com facilidade. O tempo já o havia vencido.")
+            elif cont <= 15:
+                print("Você derrotou Cavaleiro Quebrado com dificuldade. A raiva dele era quase eterna.")
+            sistema_de_xp()
+
+        if dead == 1:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("game over")
+            return
+
+        # TERCEIRO INIMIGO
+        pause = input("aperte qualquer tecla para continuar:\n")
+        limparTELA()
+        print("Terceiro inimigo: Guardião Caído.")
+        print("Sir Kael Thorne, consumido por trevas ao tentar salvar o vilarejo.")
+        pause = input("Prepare-se para o confronto final...\n")
+        lifeE, attackE, defenseE, aliveE = inimigo3()
+        cont = 0
+        while alive and aliveE:
+            cont += 1
+            Qtdlutas += 1
+            resultAttack = max(random.randint(1, int(atack + (lifeE / 6))) - random.randint(1, defenseE), 0)
+            lifeE = max(lifeE - resultAttack, 0)
+            print("voce atacou e deu", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
+
+            if lifeE <= 0:
+                aliveE = False 
+                print("Fim do combate\n")
+                vida = life
+                break
+
+            pause = input("rodada do adversario aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+            vida = max(vida - resultAttackE, 0)
+            print("Guardião Caído usou investida do tempo perdido e causou", resultAttackE, "de dano\nResta", vida, "da sua vida\n")
+
+            if vida <= 0:
+                alive = False 
+                print("Fim do combate\n")
+                cont = 0
+                aliveG = False
+                dead = 1
+                break
+            else:
+                print("Fim da rodada", cont, "\n")
+                pause = input("aperte qualquer tecla para continuar:\n")
+                limparTELA()
+
+        if aliveG and lifeE <= 0:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("Você derrotou o Guardião Caído.")
+            print("Kael Thorne desaparece em luz e poeira, deixando para trás a esperança perdida.")
+            pause = input("Aperte qualquer tecla para continuar...\n")
+            limparTELA()
+            if cont <= 6:
+                print("Você derrotou o Guardião Caído com facilidade. Ele já estava quebrado por dentro.")
+            elif cont <= 15:
+                print("Você derrotou o Guardião Caído com dificuldade. O passado dele pesava sobre sua lâmina.")
+            sistema_de_xp()
+
+        if dead == 1:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("game over")
+            return
+
+        if aliveG:
+            LevelComplet = True
+            pause = input("aperte enter para continuar")
+            limparTELA()
+            if Qtdlutas >= 2:
+                print("Com a vitória sobre Kael, você sente um fragmento de esperança se restaurar.")
+                print("O poder perdido do vilarejo ecoa em sua alma. Você está pronto para Sephiroth.")
+                atack += 75
+                life += 250
+                defense += 40
+                mostrar_status()
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                print("Você parte rumo a Libertália para encarar o portador da escuridão: Sephiroth.")
+                batalha_final()
+            else:
+                print("Você está pronto o suficiente para enfrentar o verdadeiro desafio.")
+                pause = input("Mas sem o poder completo do vilarejo. Aperte qualquer tecla para continuar...\n")
+                limparTELA()
+                print("Você encara o futuro sem as bênçãos completas, mas com coragem suficiente.")
+                pause = input("Pressione qualquer tecla para continuar...\n")
+                limparTELA()
+                mostrar_status()
+                batalha_final()
 
 def vulcao():
     #leva para o vulcao
