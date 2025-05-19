@@ -325,10 +325,10 @@ def vulcao():
 
                     limparTELA()
                     if cont <= 6:
-                        print("Você derrotou Igraya com facilidade. Suas ilusões não foram páreo para sua determinação.")
+                        print("Você derrotou Igraya com facilidade. Ele não era digno de ser seu oponente.")
                         sistema_de_xp()
                     elif cont <= 15:
-                        print("Você derrotou Igraya com dificuldade. Suas ilusões quase o levaram à derrota.")
+                        print("Você derrotou Igraya com dificuldade. Ele era um adversário formidável.")
                         sistema_de_xp()
 
         elif dead == 1:
@@ -377,10 +377,10 @@ def vulcao():
 
                         limparTELA()
                         if cont <= 6:
-                            print("Você derrotou N’zurak com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
+                            print("Você derrotou N’zurak com facilidade. Ele não era digno de ser seu oponente.")
                             sistema_de_xp()
                         elif cont <= 15:
-                            print("Você derrotou N’zurak com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
+                            print("Você derrotou N’zurak com dificuldade. Ele era um adversário formidável.")
                             sistema_de_xp()
                     break
                 else:
