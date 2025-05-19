@@ -1186,6 +1186,29 @@ esco_persona = ""
 start_point = ""
 life, atack, defense, start_point, info_Stats = 0, 0, 0, "", ""
 
+xpbase , xpAtual  = 0, 1
+level = 1
+cont = 0
+Qtdlutas = 0   
+
+
+
+print("╔════════════════════════════════════════════════════════════════════════════════════╗")
+print("║                                                                                    ║")
+print("║                                | L | I | B | E | R | T | A |                       ║")
+print("║                                                                                    ║")
+print("║                          UMA JORNADA DE MAGIA, BRAVURA E REDENÇÃO                   ║")
+print("║                                                                                    ║")
+print("║        Em um reino mergulhado nas trevas, os últimos heróis se levantam.            ║")
+print("║     Magos e guerreiros se unem para desafiar o mal que consome Libertália.          ║")
+print("║      Suas escolhas forjarão o destino do reino... e do seu próprio legado.          ║")
+print("║                                                                                    ║")
+print("║                          ★ LIBERTA — O DESTINO ESTÁ EM SUAS MÃOS ★                  ║")
+print("║                                                                                    ║")
+print("╚════════════════════════════════════════════════════════════════════════════════════╝\n")
+
+pause = input("Pressione ENTER para iniciar sua aventura...\n")
+
 print("O Reino de Libertália era um símbolo de equilíbrio e poder, onde magos e guerreiros viviam em paz,")
 print("protegendo suas terras sob a liderança justa do Império Libertália — uma cidade majestosa localizada no centro do reino.\n")
 
