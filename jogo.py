@@ -15,9 +15,9 @@ def batalha_final():
     
     #Define os status do chefe final
     def sephiroth():
-        lifeE = 25000000
-        attackE= 100000000
-        defenseE = 100000000
+        lifeE = 25000
+        attackE= 10000
+        defenseE = 1000
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
@@ -379,6 +379,313 @@ def vulcao():
 
 def precipicio():
     #leva para o precipicio
+    global Qtdlutas, life, atack, defense, level, xpAtual   
+    print("O precipício da Morte\n")
+
+    def inimigo1_pre():
+        lifeE = 2
+        attackE = 2
+        defenseE = 2
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    def inimigo2_pre():
+        lifeE = 3
+        attackE = 3
+        defenseE = 3
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    def inimigo3_pre():
+        lifeE = 4
+        attackE = 6
+        defenseE = 5
+        aliveE = True
+        return lifeE, attackE, defenseE, aliveE
+
+    cont = 0
+    alive = True
+    aliveG = True
+    LevelComplet = False
+    vida = life
+    esco_lutar = ""
+    dead = 0
+
+    print("Você decide explorar o precipício da Morte, um local misterioso onde o silêncio pulsa com misterios amaldiçoados.")
+    print("Os estalares das pedras vibram a sua volta. Ecos de antigos forasteitos ressoam pelas paredes.")
+    pause = input("Aperte qualquer tecla para continuar...\n")
+
+    print("Primeiro inimigo: Firelot, um homem de pedra.")
+    print("Um ser feito de pura força e 300kg de pedra, forte, mas com uam agilidade lenta.")
+    pause = input("Prepare-se para lutar. Aperte qualquer tecla...\n")
+
+    while aliveG and not LevelComplet:
+        while esco_lutar != "1" and esco_lutar != "2":
+            esco_lutar = input("1- lutar\n2- fugir\n:")
+
+            if esco_lutar == "1":
+                limparTELA()
+                print("Você escolheu lutar\n")
+                lifeE, attackE, defenseE, aliveE = inimigo1_pre()
+
+                while alive and aliveE:
+                    cont += 1
+                    Qtdlutas += 1
+                    resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
+                    lifeE = max(lifeE - resultAttack, 0)
+
+                    print("Você conjurou um ataque que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
+
+                    if lifeE <= 0:
+                        aliveE = False  
+                        print("Fim do combate\n")
+                        cont = 0
+                        vida = life
+                        break
+                    else:
+                        pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
+                        limparTELA()
+
+                    resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                    vida = max(vida - resultAttackE, 0)
+
+                    print("Você foi atingido por um soco de pedra e sofreu", resultAttackE, "de dano\nSua vida atual:", vida)
+
+                    if vida <= 0:
+                        alive = False
+                        print("Você foi derrotado.\n")
+                        aliveG = False
+                        dead = 1
+                        break
+                    else:
+                        print("Fim da rodada", cont)
+                        pause = input("Aperte qualquer tecla para continuar...\n")
+                        limparTELA()
+
+            elif esco_lutar == "2":
+                limparTELA()
+                print("Você fugiu da luta.\n")
+                mostrar_status()
+            else:
+                limparTELA()
+                print("Opção inválida!\n")
+
+
+        if esco_lutar == "1":
+            if aliveG == True and lifeE <= 0:
+                pause = input("aperte qualquer tecla para continuar:\n")
+                limparTELA()
+                print("Você derrotou Firelot, o homem de pedra.")
+                print("Ele se desfaz em pequenos pedregulhos, revelando um fragmento de poder escondido.")
+                pause = input("Aperte qualquer tecla para continuar...\n")
+                
+                limparTELA()
+                if cont <= 1:
+                    print("Você derrotou Firelot com facilidade. Ele não era digno de ser seu oponente.")
+                    sistema_de_xp()
+                elif cont <= 3:
+                    print("Você derrotou Firelot com dificuldade. Ele era um adversário formidável.")
+                    sistema_de_xp()
+
+
+
+
+        if aliveG:
+            pause = input("Aperte qualquer tecla para continuar...\n")
+            limparTELA()
+            print("Segundo inimigo: Ninja, o fugitivo.")
+            print("Uma Ninja que fugiu das cidades para viver uma vida misteriosa e perigosa.")
+            pause = input("Prepare-se para enfrentar os ataques nas surdinas...\n")
+            esco_lutar = ""
+
+            while esco_lutar != "1" and esco_lutar != "2":
+                esco_lutar = input("1- lutar\n2- fugir\n:")
+
+                if esco_lutar == "1":
+                    limparTELA()
+                    print("Você escolheu lutar\n")
+                    lifeE, attackE, defenseE, aliveE = inimigo2_pre()
+
+                    while alive and aliveE:
+                        cont += 1
+                        Qtdlutas += 1
+                        resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
+                        lifeE = max(lifeE - resultAttack, 0)
+
+                        print("Você conjurou um ataque que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
+
+                        if lifeE <= 0:
+                            aliveE = False  
+                            print("Fim do combate\n")
+                            cont = 0
+                            vida = life
+                            break
+                        else:
+                            pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
+                            limparTELA()
+
+                        resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                        vida = max(vida - resultAttackE, 0)
+
+                        print("Você foi atingido por uma shuriken envenenada e causou", resultAttackE, "de dano\nSua vida atual:", vida)
+
+                        if vida <= 0:
+                            alive = False
+                            print("Você foi derrotado.\n")
+                            aliveG = False
+                            dead = 1
+                            break
+                        else:
+                            print("Fim da rodada", cont)
+                            pause = input("Aperte qualquer tecla para continuar...\n")
+                            limparTELA()
+
+                elif esco_lutar == "2":
+                    limparTELA()
+                    print("Você fugiu da luta.\n")
+                    mostrar_status()
+                else:
+                    limparTELA()
+                    print("Opção inválida!\n")
+
+                if esco_lutar == "1":
+                    if aliveG == True and lifeE <= 0:
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+                        print("Você derrotou Ninja, o fugitivo.")
+                        print("Ela desaparece em um redemoinho de ilusões, deixando para trás um fragmento de magia pura.")
+                        pause = input("Aperte qualquer tecla para continuar...\n")
+                    
+                    limparTELA()
+                    if cont <= 1:
+                        print("Você derrotou Ninja com facilidade. Suas ilusões não foram páreo para sua determinação.")
+                        sistema_de_xp()
+                    elif cont <= 3:
+                        print("Você derrotou Ninja com dificuldade. Suas ilusões quase o levaram à derrota.")
+                        sistema_de_xp()
+
+        if aliveG:
+            pause = input("Aperte qualquer tecla para continuar...\n")
+            limparTELA()
+            print("Terceiro inimigo: Falconyon, o homem falcão.")
+            print("Último guardião das ruínas, ele canaliza energia pura dos ventos  para atacar.")
+            print("Essa será sua batalha mais difícil.")
+            pause = input("Prepare-se para a batalha final!\n")
+            esco_lutar = ""
+
+            while esco_lutar != "1" and esco_lutar != "2":
+                esco_lutar = input("1- lutar\n2- fugir\n:")
+
+                if esco_lutar == "1":
+                    limparTELA()
+                    print("Você escolheu lutar\n")
+                    lifeE, attackE, defenseE, aliveE = inimigo3_pre()
+
+                    while alive and aliveE:
+                        cont += 1
+                        Qtdlutas += 1
+                        resultAttack = max(random.randint(2, atack + 2) - random.randint(1, defenseE), 0)
+                        lifeE = max(lifeE - resultAttack, 0)
+
+                        print("Você conjurou um ataque que causou", resultAttack, "de dano\nResta", lifeE, "de vida do inimigo\n")
+
+                        if lifeE <= 0:
+                            aliveE = False  
+                            print("Fim do combate\n")
+                            cont = 0
+                            vida = life
+                            break
+                        else:
+                            pause = input("Rodada do inimigo. Aperte qualquer tecla...\n")
+                            limparTELA()
+
+                        resultAttackE = max(random.randint(1, attackE) - random.randint(1, defense), 0)
+                        vida = max(vida - resultAttackE, 0)
+
+                        print("Você foi atingido por um ataque aéreo", resultAttackE, "de dano\nSua vida atual:", vida)
+
+                        if vida <= 0:
+                            alive = False
+                            print("Você foi derrotado.\n")
+                            aliveG = False
+                            dead = 1
+                            break
+                        else:
+                            print("Fim da rodada", cont)
+                            pause = input("Aperte qualquer tecla para continuar...\n")
+                            limparTELA()
+
+                elif esco_lutar == "2":
+                    limparTELA()
+                    print("Você fugiu da luta.\n")
+                    mostrar_status()
+                else:
+                    limparTELA()
+                    print("Opção inválida!\n")
+                
+                if esco_lutar == "1":
+                    if aliveG == True and lifeE <= 0:
+                        pause = input("aperte qualquer tecla para continuar:\n")
+                        limparTELA()
+                        print("Você derrotou Falconyon, o homem falcão.")
+                        print("Ele cai de asas no chão, sua energia se dissipando no ar, deixando para trás um núcleo de energia misterioso.")
+                        pause = input("Aperte qualquer tecla para continuar...\n")
+                    
+                    limparTELA()
+                    if cont <= 1:
+                        print("Você derrotou Falconyon com facilidade. Sua conexão com a energia o tornou imbatível.")
+                        sistema_de_xp()
+                    elif cont <= 3:
+                        print("Você derrotou Falconyon com dificuldade. Sua energia quase o sobrepujou, mas sua determinação prevaleceu.")
+                        sistema_de_xp()
+        if Qtdlutas >= 2:
+            LevelComplet = True
+            pause = input("Aperte qualquer tecla para continuar...\n")
+            limparTELA()
+            print("Com a vitória sobre Falconyon, sua mente se abre para segredos antigos.")
+            print("Você domina a nova habilidade: 'Energia pedregulhosa'.")
+            pause = input("Você sente o verdadeiro poder da energia ancestral. Pressione qualquer tecla para continuar...\n")
+            print("Você se torna o novo Explorador misterioso do precipício Cozz.")
+            print("A energia ancestral agora flui através de você, e o legado dos antigos dos que passaram por ai vive em seu coração.")
+            print("Agora por sua coragem e determinação, você é digno de ser chamado de 'Explorador misterioso do precipício Cozz'.")
+            pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+            print("E ganha poder dos antigos exploradores que habitavam o precipício e seu corpo recebe tamanho poder.")
+            print("Agora está pronto para enfrentar o verdadeiro desafio.")
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            limparTELA()
+            
+            atack += 3000
+            life += 15000
+            defense += 5000
+            mostrar_status()
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo .")
+            batalha_final()
+            exit()  
+
+        elif Qtdlutas < 2: 
+            print("Você está pronto o suficiente para enfrentar o verdadeiro desafio.")
+            pause = input("Você sente o verdadeiro poder da magia ancestral. Pressione qualquer tecla para continuar...\n")
+            limparTELA()
+            print("E não ganha poder dos antigos magos elfos que habitavam as ruínas pois seu corpo não esta fortalecido o suficiente.")
+            print("Agora terá que ir enfrentar o verdadeiro desafio sem esse poder.")
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            limparTELA()
+            
+            mostrar_status()
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            
+            print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo mesmo sem receber o grande poder .")
+            pause = input("Pressione qualquer tecla para continuar...\n")
+            limparTELA()
+            batalha_final()
+            exit()
+
+        elif dead == 1:
+            pause = input("aperte qualquer tecla para continuar:\n")
+            limparTELA()
+            print("game over") 
+            dead = 0
     print("precipicio")
 
 def floresta():
