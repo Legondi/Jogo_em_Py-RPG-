@@ -735,9 +735,9 @@ def precipicio():
             pause = input("Pressione qualquer tecla para continuar...\n")
             limparTELA()
             
-            atack += 3000
-            life += 15000
-            defense += 5000
+            atack += 80
+            life += 225
+            defense += 45
             mostrar_status()
             pause = input("Pressione qualquer tecla para continuar...\n")
             print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo .")
