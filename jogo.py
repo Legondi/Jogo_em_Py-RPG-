@@ -15,9 +15,9 @@ def batalha_final():
     
     #Define os status do chefe final
     def sephiroth():
-        lifeE = 25000
-        attackE= 10000
-        defenseE = 1000
+        lifeE = 400
+        attackE= 50
+        defenseE = 24
         aliveE = True
         return lifeE, attackE, defenseE, aliveE
 
@@ -123,27 +123,27 @@ def vulcao():
 
     def inimigo1():
 
-        lifeE = 1
-        attackE= 1
-        defenseE = 1
+        lifeE = 20
+        attackE= 10
+        defenseE = 40
         aliveE = True
 
         return lifeE, attackE, defenseE, aliveE
 
     def inimigo2():
 
-        lifeE = 1
-        attackE= 1
-        defenseE = 1
+        lifeE = 70
+        attackE= 18
+        defenseE = 15
         aliveE = True
 
         return lifeE, attackE, defenseE, aliveE
 
     def inimigo3():
 
-        lifeE = 1000000000000000000000000000
-        attackE= 400000000000000000000000000000
-        defenseE = 3
+        lifeE = 100
+        attackE= 30
+        defenseE = 12
         aliveE = True
 
         return lifeE, attackE, defenseE, aliveE
@@ -189,7 +189,6 @@ def vulcao():
 
                         aliveE = False 
                         print ("Fim do combate\n")
-                        cont = 0
                         vida = life
                         break
 
@@ -237,10 +236,10 @@ def vulcao():
                     pause = input("Aperte qualquer tecla para continuar...\n")
                     
                     limparTELA()
-                    if cont <= 1:
+                    if cont <= 6:
                         print("Você derrotou Ashkar com facilidade. Ele não era digno de ser seu oponente.")
                         sistema_de_xp()
-                    elif cont <= 3:
+                    elif cont <= 15:
                         print("Você derrotou Ashkar com dificuldade. Ele era um adversário formidável.")
                         sistema_de_xp()
 
@@ -264,6 +263,7 @@ def vulcao():
                 if esco_lutar == "1":
                     limparTELA()
                     print("voce escolheu lutar\n")
+                    cont = 0
                     lifeE, attackE, defenseE, aliveE = inimigo2()
 
                     while alive == True and aliveE == True:
@@ -278,7 +278,6 @@ def vulcao():
 
                             aliveE = False 
                             print ("Fim do combate\n")
-                            cont = 0
                             vida = life
                             break
 
@@ -325,10 +324,10 @@ def vulcao():
                         pause = input("Aperte qualquer tecla para continuar...\n")
 
                     limparTELA()
-                    if cont <= 1:
+                    if cont <= 6:
                         print("Você derrotou Akyra com facilidade. Suas ilusões não foram páreo para sua determinação.")
                         sistema_de_xp()
-                    elif cont <= 3:
+                    elif cont <= 15:
                         print("Você derrotou Akyra com dificuldade. Suas ilusões quase o levaram à derrota.")
                         sistema_de_xp()
 
@@ -351,7 +350,9 @@ def vulcao():
             pause = input("voce esta indo para a batalha final obrigatoria da fenda do vulcao\nAperte qualquer tecla para continuar")
             limparTELA()
 
+            cont = 0
             while alive == True and aliveE == True:
+                
                 cont = cont + 1
                 Qtdlutas = Qtdlutas + 1
 
@@ -362,7 +363,6 @@ def vulcao():
                 if lifeE <= 0:
                     aliveE = False 
                     print ("Fim do combate\n")
-                    cont = 0
                     vida = life
                     dead = 0
                     
@@ -376,10 +376,10 @@ def vulcao():
                             pause = input("Aperte qualquer tecla para continuar...\n")
 
                         limparTELA()
-                        if cont <= 1:
+                        if cont <= 6:
                             print("Você derrotou Vyserion com facilidade. Sua conexão com a magia ancestral o tornou imbatível.")
                             sistema_de_xp()
-                        elif cont <= 3:
+                        elif cont <= 15:
                             print("Você derrotou Vyserion com dificuldade. Sua magia quase o sobrepujou, mas sua determinação prevaleceu.")
                             sistema_de_xp()
                     break
@@ -423,9 +423,9 @@ def vulcao():
                 pause = input("Hora de enfrentar Sephiroth. Aperte qualquer tecla para continuar...\n")
                 limparTELA()
             
-                atack =+ 3000
-                life =+ 15000
-                defense =+ 5000
+                atack =+ 75
+                life =+ 250
+                defense =+ 40
                 mostrar_status()
                 pause = input("Pressione qualquer tecla para continuar...\n")
                 print("Então você vai atrás do grande inimigo Sephiroth viajando a libertalia atras de acabar com a escuridão do mundo .")
@@ -1094,8 +1094,8 @@ def mage():
 def valkyrie():
     #status da guerreira
     life = 100
-    atack = 1000
-    defense = 1
+    atack = 40
+    defense = 15
     start_point = "V"
     info_stats = f"Vida: {life}\nAtaque: {atack}\nDefesa: {defense}"
     return life, atack, defense, start_point, info_stats
