@@ -1300,7 +1300,7 @@ while decisao_ini != "1" and decisao_ini != "2" and decisao_ini != "3":
         limparTELA()
         while decisao_city != "1" and decisao_city != "2":
             print("escolha seu destino:")
-            decisao_city = input("1- Cânion Cozz\n2- Vilarejo destruído de Ludwig \n:")
+            decisao_city = input("1-Vilarejo destruído de Ludwig\n2- Cânion Cozz  \n:")
             if decisao_city == "1":
                 limparTELA()
                 vilarejo()
