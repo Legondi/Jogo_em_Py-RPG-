@@ -1185,28 +1185,6 @@ decisao_city = ""
 esco_persona = ""
 start_point = ""
 life, atack, defense, start_point, info_Stats = 0, 0, 0, "", ""
-xpbase , xpAtual  = 0, 1
-level = 1
-cont = 0
-Qtdlutas = 0   
-
-
-
-print("╔════════════════════════════════════════════════════════════════════════════════════╗")
-print("║                                                                                    ║")
-print("║                                | L | I | B | E | R | T | A |                       ║")
-print("║                                                                                    ║")
-print("║                          UMA JORNADA DE MAGIA, BRAVURA E REDENÇÃO                   ║")
-print("║                                                                                    ║")
-print("║        Em um reino mergulhado nas trevas, os últimos heróis se levantam.            ║")
-print("║     Magos e guerreiros se unem para desafiar o mal que consome Libertália.          ║")
-print("║      Suas escolhas forjarão o destino do reino... e do seu próprio legado.          ║")
-print("║                                                                                    ║")
-print("║                          ★ LIBERTA — O DESTINO ESTÁ EM SUAS MÃOS ★                  ║")
-print("║                                                                                    ║")
-print("╚════════════════════════════════════════════════════════════════════════════════════╝\n")
-
-pause = input("Pressione ENTER para iniciar sua aventura...\n")
 
 print("O Reino de Libertália era um símbolo de equilíbrio e poder, onde magos e guerreiros viviam em paz,")
 print("protegendo suas terras sob a liderança justa do Império Libertália — uma cidade majestosa localizada no centro do reino.\n")
@@ -1236,7 +1214,7 @@ input("Pressione ENTER para escolher o seu personagem \n")
 
 #validação de escolha
 while esco_persona != "1" and esco_persona != "2":
-    esco_persona = input("1- Mago🧙‍♂️\n2- Guerreira🗡️\n3- Informações de Personagens:")
+    esco_persona = input("1- Mago\n2- Guerreira\n3- Informações de Personagens:")
 
     #estrutura para decidir o personagem (previne erros)
     if esco_persona == "1":
@@ -1256,7 +1234,7 @@ while esco_persona != "1" and esco_persona != "2":
         #estrutura para decidir qual o status do personagem quer ver (previne erros)
         while esco_info != "1" and esco_info != "2" and esco_info != "3":
             print("qual dos persongens voce quer ver historia e status:?")
-            esco_info = input("1- Mago🧙‍♂️\n2- Guerreira🗡️\n3- Voltar\n:")
+            esco_info = input("1- Mago\n2- Guerreira\n3- voltar\n:")
             limparTELA()
 
             if esco_info == "1":
