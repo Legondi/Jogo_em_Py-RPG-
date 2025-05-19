@@ -1480,7 +1480,7 @@ print("║        Em um reino mergulhado nas trevas, os últimos heróis se leva
 print("║     Magos e guerreiros se unem para desafiar o mal que consome Libertália.         ║")
 print("║      Suas escolhas forjarão o destino do reino... e do seu próprio legado.         ║")
 print("║                                                                                    ║")
-print("║                          ★ LIBERTA — O DESTINO ESTÁ EM SUAS MÃOS ★                ║")
+print("║                          ★ LIBERTA — O DESTINO ESTÁ EM SUAS MÃOS ★                 ║")
 print("║                                                                                    ║")
 print("╚════════════════════════════════════════════════════════════════════════════════════╝\n")
 
